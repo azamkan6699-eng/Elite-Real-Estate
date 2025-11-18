@@ -8,7 +8,7 @@ import heroProperty4 from "@/assets/hero-property-4.jpg";
 
 import emaarLogo from "@/assets/Logo-1.png";
 import damacLogo from "@/assets/Logo-3.png";
-import nakheelLogo from "@/assets/Logo-5.png";
+import nakheelLogo from "@/assets/Logo-10.png";
 
 
 

@@ -1,6 +1,22 @@
-import { Navbar } from '@/components/Navbar'
-import React, { useEffect, useRef, useState } from 'react'
-import { Footer } from '@/components/Footer';
+import React, { useEffect, useRef, useState } from "react";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { Property } from "./Secondary";
+
+// SHADCN UI
+import {
+    Select,
+    SelectTrigger,
+    SelectValue,
+    SelectContent,
+    SelectItem,
+} from "@/components/ui/select";
+
+import { Button } from "@/components/ui/button";
+
+// ICONS
+import { Search } from "lucide-react";
+
 
 export default function Rental() {
     return (
@@ -48,17 +64,17 @@ function SecondaryPropertiesHero() {
         <>
             {/* Hero Section */}
             <section
-                className="p-[15px] bg-no-repeat bg-center bg-cover bg-[#FFF6F0] h-screen flex flex-wrap items-center relative before:absolute before:inset-0 before:content-['']"
-                style={{ backgroundImage: "url('https://skyeliterealestate.com/assets/images/Secondary/Hero.png')" }}
+                className="relative py-20 md:py-32 bg-gradient-to-br from-primary/10 via-background to-accent/10"
+
             >
-                <div className="container mx-auto px-4">
-                    <div className="text-center text-white relative z-[1] max-w-[650px] mx-auto">
-                        <span className="block mb-2 text-base">Services</span>
-                        <h1 className="font-serif text-[36px] sm:text-[50px] md:text-[68px] lg:text-[50px] leading-tight xl:text-[68px] font-medium">
-                            Secondary Properties
+                <div className="container mx-auto px-[25px] sm:px-4 md:px-[90px]">
+                    <div className="text-white relative z-[1] max-w-[650px]">
+                        <span className="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">Services</span>
+                        <h1 className="mb-6 text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
+                            Rental Properties
                         </h1>
-                        <p className="text-base mt-3 max-w-[500px] mx-auto">
-                            Find your dream home easily. Whether you're upgrading, relocating, or investing, we help you secure the perfect property without the hassle.
+                        <p className="mb-8 text-lg text-muted-foreground md:text-xl">
+                            We help you find rental properties with ease, whether you need a temporary stay, a family home, or a premium apartment.
                         </p>
                         <button
                             onClick={() => setIsPopupOpen(true)}
@@ -206,7 +222,7 @@ function SecondaryPropertiesHero() {
 
 
 
-function PropertySearchForm() {
+export function PropertySearchForm() {
     const [city, setCity] = React.useState("");
     const [propertyType, setPropertyType] = React.useState("");
     const [bedrooms, setBedrooms] = React.useState("");
@@ -223,136 +239,89 @@ function PropertySearchForm() {
         console.log('Search parameters:', Object.fromEntries(params));
         // Navigate to: /Property/secondary?${params.toString()}
     };
-    
+
     return (
         <>
-            <div className="container mx-auto px-4 md:px-20 mt-20">
-                {/* Search Form */}
-                <div className="w-full max-w-5xl bg-white shadow-md rounded-xl p-6 md:p-8 mx-auto">
-                    <form onSubmit={handleSubmit}>
-                        <div className="flex flex-wrap gap-4 justify-center">
-                            {/* City */}
-                            <div className="w-full sm:w-[calc(25%-0.5rem)]">
-                                <select
-                                    value={city}
-                                    onChange={(e) => setCity(e.target.value)}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                                >
-                                    <option value="" disabled>Select City</option>
-                                    <option value="Dubai">Dubai</option>
-                                    <option value="Abu Dhabi">Abu Dhabi</option>
-                                    <option value="Sharjah">Sharjah</option>
-                                </select>
-                            </div>
-
-                            {/* Property Type */}
-                            <div className="w-full sm:w-[calc(20%-0.5rem)]">
-                                <select
-                                    value={propertyType}
-                                    onChange={(e) => setPropertyType(e.target.value)}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                                >
-                                    <option value="" disabled>Choose Property</option>
-                                    <option value="Apartment">Apartment</option>
-                                    <option value="Villa">Villa</option>
-                                    <option value="Penthouse">Penthouse</option>
-                                </select>
-                            </div>
-
-                            {/* Bedrooms */}
-                            <div className="w-full sm:w-[calc(20%-0.5rem)]">
-                                <select
-                                    value={bedrooms}
-                                    onChange={(e) => setBedrooms(e.target.value)}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                                >
-                                    <option value="" disabled>Choose Bedroom</option>
-                                    <option value="1">1 Bed</option>
-                                    <option value="2">2 Beds</option>
-                                    <option value="3">3+ Beds</option>
-                                </select>
-                            </div>
-
-                            {/* Price */}
-                            <div className="w-full sm:w-[calc(20%-0.5rem)]">
-                                <select
-                                    value={price}
-                                    onChange={(e) => setPrice(e.target.value)}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                                >
-                                    <option value="">Price</option>
-                                    <option value="low">Low to High</option>
-                                    <option value="high">High to Low</option>
-                                </select>
-                            </div>
-
-                            {/* Search Button */}
-                            <div className="w-full sm:w-[calc(10%-0.5rem)]">
-                                <button
-                                    type="submit"
-                                    className="w-full h-10 bg-[#1FA7E1] text-white rounded-md hover:bg-[#1890c8] transition-colors"
-                                >
-                                    Search
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                {/* Listing Header */}
-                <div className="w-full max-w-5xl mx-auto mt-8">
-                    <div className="flex flex-col md:flex-row items-center justify-between bg-white rounded-lg p-4 shadow-sm gap-3">
-
-                        {/* Left Side */}
-                        <div className="flex items-center gap-2">
-                            <span className="font-semibold text-gray-900 text-sm md:text-base">
-                                Apartment for Sale in Dubai
-                            </span>
+            {/* Property Filters */}
+            <section className="border-b border-border/40 bg-background/95 backdrop-blur">
+                <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24 py-8">
+                    <div className="grid gap-4 md:grid-cols-5 items-end">
+                        <div className="space-y-2">
+                            <label className="text-sm font-medium text-foreground">Select City</label>
+                            <Select defaultValue="dubai">
+                                <SelectTrigger>
+                                    <SelectValue placeholder="Select city" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="dubai">Dubai</SelectItem>
+                                    <SelectItem value="abu-dhabi">Abu Dhabi</SelectItem>
+                                    <SelectItem value="sharjah">Sharjah</SelectItem>
+                                </SelectContent>
+                            </Select>
                         </div>
 
-                        {/* Right Side */}
-                        <div className="flex items-center gap-2 w-full md:w-auto">
-                            <label
-                                htmlFor="sortSelect"
-                                className="text-gray-500 font-semibold text-sm whitespace-nowrap"
-                            >
-                                Sort by:
-                            </label>
-                            <select
-                                id="sortSelect"
-                                className="border border-gray-300 rounded-md text-sm px-3 py-2 w-full md:w-40 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            >
-                                <option>Newest</option>
-                                <option>Oldest</option>
-                                <option>Popular</option>
-                            </select>
+                        <div className="space-y-2">
+                            <label className="text-sm font-medium text-foreground">Property Type</label>
+                            <Select defaultValue="apartment">
+                                <SelectTrigger>
+                                    <SelectValue placeholder="Choose property" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="apartment">Apartment</SelectItem>
+                                    <SelectItem value="villa">Villa</SelectItem>
+                                    <SelectItem value="townhouse">Townhouse</SelectItem>
+                                </SelectContent>
+                            </Select>
                         </div>
+
+                        <div className="space-y-2">
+                            <label className="text-sm font-medium text-foreground">Bedrooms</label>
+                            <Select>
+                                <SelectTrigger>
+                                    <SelectValue placeholder="Choose bedroom" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="studio">Studio</SelectItem>
+                                    <SelectItem value="1">1 Bedroom</SelectItem>
+                                    <SelectItem value="2">2 Bedrooms</SelectItem>
+                                    <SelectItem value="3">3 Bedrooms</SelectItem>
+                                    <SelectItem value="4+">4+ Bedrooms</SelectItem>
+                                </SelectContent>
+                            </Select>
+                        </div>
+
+                        <div className="space-y-2">
+                            <label className="text-sm font-medium text-foreground">Price Range</label>
+                            <Select>
+                                <SelectTrigger>
+                                    <SelectValue placeholder="Price" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="0-500k">AED 0 - 500k</SelectItem>
+                                    <SelectItem value="500k-1m">AED 500k - 1M</SelectItem>
+                                    <SelectItem value="1m-2m">AED 1M - 2M</SelectItem>
+                                    <SelectItem value="2m+">AED 2M+</SelectItem>
+                                </SelectContent>
+                            </Select>
+                        </div>
+
+                        <Button className="gap-2">
+                            <search className="h-4 w-4" />
+                            Search
+                        </Button>
                     </div>
                 </div>
-            </div>
+            </section>
         </>
     );
 }
 
 function ApartmentsList() {
     return (
-        <div className="container mx-auto mt-[50px] px-[100px]">
-            <h4 className="mb-3 text-xl font-semibold text-gray-800">
-                Apartments for Sale in Dubai
-            </h4>
+        <>
+            <Property />
+        </>
 
-            <div className="col-span-12">
-                <div className="all-properties properties-tab-content active">
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <h4 className="text-gray-500 text-lg font-medium">
-                            No Properties yet
-                        </h4>
-                    </div>
-
-                    <div className="mt-5"></div>
-                </div>
-            </div>
-        </div>
     );
 }
 

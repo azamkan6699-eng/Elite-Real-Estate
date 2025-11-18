@@ -95,7 +95,7 @@ The spacious layout features floor-to-ceiling windows that flood the space with 
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <main className="container mx-auto px-[58px] py-8 max-w-7xl">
+      <main className="container mx-auto px-[25px] sm:px-4 md:px-[58px] py-8 max-w-7xl">
         {/* Image Gallery & Map */}
         <section className="mb-8">
           <div className="grid lg:grid-cols-[1fr_350px] gap-6">
