@@ -37,7 +37,7 @@ function ContactForm() {
 
     return (
         <div 
-            className="relative py-6 sm:py-8 lg:py-10 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-[95px] 2xl:px-24 bg-cover bg-center bg-no-repeat"
+            className="relative py-6 sm:py-8 lg:py-10 sm:px-6 md:px-8 lg:px-12 xl:px-[65px] 2xl:px-24 bg-cover bg-center bg-no-repeat"
             style={{
                 backgroundImage: "url('https://skyeliterealestate.com/assets/images/Secondary/Hero.png')"
             }}
