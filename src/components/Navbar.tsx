@@ -95,7 +95,7 @@ export const Navbar = () => {
             to="/testimonials"
             className="text-sm font-medium text-foreground hover:text-primary transition-colors"
           >
-            Testimonials
+            Contact Us
           </Link>
         </div>
 
