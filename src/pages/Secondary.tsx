@@ -325,7 +325,8 @@ export const Property = () => {
     setIsWishlisted(!isWishlisted);
   };
 
-  const offPlanProperties = [
+
+const offPlanProperties = [
   {
     id: "1",
     title: "Stylish Studio in Al Haseen 4",
@@ -347,8 +348,42 @@ export const Property = () => {
     addedDate: "03 Sep 2025",
     image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80",
   },
-  
+  {
+    id: "3",
+    title: "Affordable Luxury Apartment",
+    location: "Al Haseen-4, Dubai",
+    price: "AED 538,888",
+    type: "Off-Plan",
+    bedrooms: 1,
+    area: "550 sq.ft",
+    addedDate: "30 Jul 2025",
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+  },
+  {
+    id: "4",
+    title: "Premium 1 BHK with High Floor Views",
+    location: "Al Haseen-4, Dubai",
+    price: "AED 521,125",
+    type: "Off-Plan",
+    bedrooms: 1,
+    area: "580 sq.ft",
+    addedDate: "30 Jul 2025",
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+  },
+  {
+    id: "5",
+    title: "Luxury Villas Handing Over In 2029",
+    location: "Selvara, Grand Polo Club & Resort, Dubai",
+    price: "AED 6,286,888",
+    type: "Off-Plan",
+    bedrooms: 4,
+    area: "3500 sq.ft",
+    addedDate: "30 Jul 2025",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    featured: true,
+  },
 ];
+
 
   return (
     <div className="w-full min-h-screen bg-gray-50 py-4 sm:py-6 lg:py-8">
