@@ -104,7 +104,7 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      
+
       {/* Hero Section */}
       <article className="flex-1">
         <div className="relative bg-gradient-to-br from-primary/10 via-background to-accent/10 py-12 md:py-16">
@@ -113,18 +113,18 @@ const BlogPost = () => {
               <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
               Back to Blog
             </Link>
-            
+
             <div className="max-w-4xl">
               <div className="mb-4">
                 <span className="bg-primary/90 backdrop-blur-sm text-primary-foreground px-4 py-1.5 rounded-full text-sm font-medium">
                   {post.category}
                 </span>
               </div>
-              
+
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                 {post.title}
               </h1>
-              
+
               <div className="flex flex-wrap items-center gap-4 md:gap-6 text-sm text-muted-foreground mb-8">
                 <div className="flex items-center gap-2">
                   <Calendar className="h-4 w-4" />
@@ -157,14 +157,12 @@ const BlogPost = () => {
         </div>
 
         {/* Featured Image */}
-        <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden px-[97px] ">
-          <img 
-            src={post.image} 
-            alt={post.title}
-            className="w-full h-full object-cover rounded-md"
-          />
-        </div>
-
+        <div className="relative sm:w-full md:h-[400px] lg:h-[500px] overflow-hidden px-[28px] sm:px-[97px] "> 
+          <img src={post.image}
+           alt={post.title}
+          className="object-cover rounded-md w-[700px] h-[] sm:h-[100%] sm:w-[100%]"/> 
+          </div>
+        
         {/* Article Content */}
         <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24 py-12 md:py-16">
           <div className="max-w-4xl mx-auto">
@@ -190,7 +188,7 @@ const BlogPost = () => {
                         </h3>
                       )}
                     </div>
-                    
+
                     <div className="space-y-4">
                       {section.paragraphs.map((paragraph, pIndex) => (
                         <p key={pIndex} className="text-base md:text-lg leading-relaxed text-foreground/80">
@@ -248,8 +246,8 @@ const BlogPost = () => {
                 {relatedPosts.map((relatedPost) => (
                   <Card key={relatedPost.id} className="group overflow-hidden hover:shadow-xl transition-all duration-300">
                     <div className="relative overflow-hidden aspect-[16/10]">
-                      <img 
-                        src={relatedPost.image} 
+                      <img
+                        src={relatedPost.image}
                         alt={relatedPost.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
@@ -259,7 +257,7 @@ const BlogPost = () => {
                         </span>
                       </div>
                     </div>
-                    
+
                     <CardHeader>
                       <h3 className="text-xl font-bold leading-tight group-hover:text-primary transition-colors line-clamp-2">
                         {relatedPost.title}

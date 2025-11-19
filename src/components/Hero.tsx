@@ -9,6 +9,7 @@ import heroProperty4 from "@/assets/hero-property-4.jpg";
 import emaarLogo from "@/assets/Logo-1.png";
 import damacLogo from "@/assets/Logo-3.png";
 import nakheelLogo from "@/assets/Logo-10.png";
+import { useEffect, useRef } from "react";
 
 
 
@@ -47,6 +48,37 @@ export const Hero = () => {
     const element = document.getElementById('properties');
     element?.scrollIntoView({ behavior: 'smooth' });
   };
+
+
+
+  const trackRef = useRef(null);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    let position = 0;
+    const speed = 0.4; // 100% same speed as your main slider
+    const logos = track.children.length;
+    const logoWidth = 180;
+    const totalWidth = logos * logoWidth;
+
+  const animate = () => {
+      position -= speed;
+
+      if (Math.abs(position) >= totalWidth / 2) {
+        position = 0;
+      }
+
+      track.style.transform = `translateX(${position}px)`;
+      requestAnimationFrame(animate);
+    };
+
+    const animationId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationId);
+  }, []);
+
+  const logos = [emaarLogo, damacLogo, nakheelLogo];
 
   return (
     <section id="home" className="relative overflow-hidden bg-gradient-to-b from-background via-muted/20 to-background pt-20 pb-16 md:pt-32 md:pb-24">
@@ -141,24 +173,51 @@ export const Hero = () => {
           </div>
         </div>
 
-        {/* Bottom Trust Bar */}
-        <div className="mt-16 flex flex-wrap items-center justify-center gap-8 border-t border-border pt-8 opacity-70">
-          <p className="text-sm font-medium text-muted-foreground">Trusted Partners:</p>
+        <div className="mt-16 border-t border-border pt-8 opacity-70">
+  <div className="flex flex-col items-center justify-center gap-6">
 
-          <div className="flex flex-wrap items-center gap-8">
-            {[emaarLogo, damacLogo, nakheelLogo].map((logo, index) => (
-              <img
-                key={index}
-                src={logo}
-                alt="Partner Logo"
-                className="h-[110px] object-contain opacity-70 hover:opacity-100 transition"
-              />
-            ))}
-          </div>
-        </div>
+    <p className="text-sm font-medium text-muted-foreground">
+      Trusted Partners:
+    </p>
+
+    {/* Centered Compact Slider */}
+    <div className="relative overflow-hidden w-[300px] sm:w-[360px] md:w-[420px] lg:w-[450px]">
+      <div
+        ref={trackRef}
+        className="flex gap-6 items-center w-max"
+      >
+        {/* Original logos */}
+        {[emaarLogo, damacLogo, nakheelLogo].map((logo, index) => (
+          <img
+            key={`logo-${index}`}
+            src={logo}
+            alt="Partner Logo"
+            className="h-[70px] sm:h-[80px] md:h-[90px] object-contain flex-shrink-0 opacity-70 hover:opacity-100 transition"
+          />
+        ))}
+
+        {/* Duplicate logos */}
+        {[emaarLogo, damacLogo, nakheelLogo].map((logo, index) => (
+          <img
+            key={`logo-duplicate-${index}`}
+            src={logo}
+            alt="Partner Logo"
+            className="h-[70px] sm:h-[80px] md:h-[90px] object-contain flex-shrink-0 opacity-70 hover:opacity-100 transition"
+          />
+        ))}
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
 
       </div>
     </section>
   );
 };
+
 

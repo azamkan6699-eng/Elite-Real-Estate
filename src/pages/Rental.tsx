@@ -78,7 +78,7 @@ function SecondaryPropertiesHero() {
                         </p>
                         <button
                             onClick={() => setIsPopupOpen(true)}
-                            className="mt-6 px-5 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-all"
+                            className="mt-6 px-5 py-3 bg-[#2a416f] hover:bg-[#35528d] text-white rounded-lg transition-all"
                         >
                             Get Expert Advice
                         </button>
@@ -92,7 +92,7 @@ function SecondaryPropertiesHero() {
                     className={`fixed inset-0 bg-black bg-opacity-50 flex items-start justify-center z-50 transition-all duration-500 ${isPopupOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
                         }`}
                 >
-                    <div className="bg-white rounded-lg w-[90%] max-w-[650px] h-[600px] mt-10 flex flex-col md:flex-row relative overflow-hidden shadow-lg transition-all duration-500 transform animate-slideDown p-3">
+                    <div className="bg-white rounded-lg w-[90%] max-w-[650px] h-[530px] mt-10 flex flex-col md:flex-row relative shadow-lg transition-all duration-500 transform animate-slideDown p-2">
 
                         {/* Close Button */}
                         <button
@@ -103,99 +103,99 @@ function SecondaryPropertiesHero() {
                         </button>
 
                         {/* Image Section */}
-                        <div className="hidden md:block md:w-1/2">
+                        <div className="hidden md:block md:w-1/2 h-full">
                             <img
                                 src="https://skyeliterealestate.com/assets/images/home/Mask%20group.png"
                                 alt="House"
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover rounded-l-lg"
                             />
                         </div>
 
                         {/* Form Section */}
-                        <div className="w-full md:w-1/2 p-6">
-                            <h2 className="text-2xl font-semibold mb-4 text-gray-800 text-center">Let's Connect!</h2>
+                        <div className="w-full md:w-1/2 p-4 flex flex-col justify-between h-full">
+                            <h2 className="text-2xl font-semibold mb-2 text-gray-800 text-center">Let's Connect!</h2>
 
-                            <form onSubmit={handleSubmit} className="space-y-3">
-                                <input
-                                    type="text"
-                                    name="fullName"
-                                    value={formData.fullName}
-                                    onChange={handleInputChange}
-                                    placeholder="Full Name"
-                                    required
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
-                                />
+                            <form onSubmit={handleSubmit} className="space-y-2 flex-1 flex flex-col justify-between">
+                                <div className="space-y-2">
+                                    <input
+                                        type="text"
+                                        name="fullName"
+                                        value={formData.fullName}
+                                        onChange={handleInputChange}
+                                        placeholder="Full Name"
+                                        required
+                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+                                    />
 
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleInputChange}
-                                    placeholder="Email Address"
-                                    required
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
-                                />
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleInputChange}
+                                        placeholder="Email Address"
+                                        required
+                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+                                    />
 
-                                <input
-                                    type="tel"
-                                    name="phoneNumber"
-                                    value={formData.phoneNumber}
-                                    onChange={handleInputChange}
-                                    placeholder="Phone Number"
-                                    required
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
-                                />
+                                    <input
+                                        type="tel"
+                                        name="phoneNumber"
+                                        value={formData.phoneNumber}
+                                        onChange={handleInputChange}
+                                        placeholder="Phone Number"
+                                        required
+                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+                                    />
 
-                                {/* Budget */}
-                                <div>
-                                    <h5 className="text-gray-700 font-semibold mb-1">Budget Range</h5>
-                                    <div className="flex gap-2 flex-wrap">
-                                        <select
-                                            name="currency"
-                                            value={formData.currency}
-                                            onChange={handleInputChange}
-                                            className="flex-[0_0_90px] px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
-                                        >
-                                            <option value="$">USD</option>
-                                            <option value="AED">AED</option>
-                                        </select>
+                                    <div>
+                                        <h5 className="text-gray-700 font-semibold mb-1">Budget Range</h5>
+                                        <div className="flex gap-2 flex-wrap">
+                                            <select
+                                                name="currency"
+                                                value={formData.currency}
+                                                onChange={handleInputChange}
+                                                className="flex-[0_0_90px] px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+                                            >
+                                                <option value="$">USD</option>
+                                                <option value="AED">AED</option>
+                                            </select>
 
-                                        <input
-                                            type="number"
-                                            name="budgetMin"
-                                            value={formData.budgetMin}
-                                            onChange={handleInputChange}
-                                            placeholder="Min"
-                                            min="0"
-                                            required
-                                            className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
-                                        />
+                                            <input
+                                                type="number"
+                                                name="budgetMin"
+                                                value={formData.budgetMin}
+                                                onChange={handleInputChange}
+                                                placeholder="Min"
+                                                min="0"
+                                                required
+                                                className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+                                            />
 
-                                        <input
-                                            type="number"
-                                            name="budgetMax"
-                                            value={formData.budgetMax}
-                                            onChange={handleInputChange}
-                                            placeholder="Max"
-                                            min="0"
-                                            required
-                                            className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
-                                        />
+                                            <input
+                                                type="number"
+                                                name="budgetMax"
+                                                value={formData.budgetMax}
+                                                onChange={handleInputChange}
+                                                placeholder="Max"
+                                                min="0"
+                                                required
+                                                className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+                                            />
+                                        </div>
                                     </div>
+
+                                    <textarea
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleInputChange}
+                                        placeholder="Type your message..."
+                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 resize-none outline-none"
+                                    ></textarea>
                                 </div>
-
-                                <textarea
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleInputChange}
-                                    placeholder="Type your message..."
-
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 resize-none outline-none"
-                                ></textarea>
 
                                 <button
                                     type="submit"
-                                    className="w-full bg-[#1FA7E1] text-white py-3 rounded-md hover:bg-[#1890c9] transition-all"
+                                    className="w-full bg-[#1FA7E1] text-white py-3 rounded-md hover:bg-[#1890c9] transition-all mt-2"
                                 >
                                     Submit
                                 </button>
@@ -222,7 +222,7 @@ function SecondaryPropertiesHero() {
 
 
 
-export function PropertySearchForm() {
+function PropertySearchForm() {
     const [city, setCity] = React.useState("");
     const [propertyType, setPropertyType] = React.useState("");
     const [bedrooms, setBedrooms] = React.useState("");

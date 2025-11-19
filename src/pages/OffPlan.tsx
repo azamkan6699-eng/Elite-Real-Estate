@@ -4,6 +4,7 @@ import { PropertyCard } from "@/components/PropertyCard";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search } from "lucide-react";
+import { useState } from "react";
 
 const offPlanProperties = [
   {
@@ -69,25 +70,7 @@ const OffPlan = () => {
       <Navbar />
       <main>
         {/* Hero Section */}
-        <section className="relative py-20 md:py-32 bg-gradient-to-br from-primary/10 via-background to-accent/10">
-          <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
-            <div className="max-w-3xl">
-              <div className="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-                Services
-              </div>
-              <h1 className="mb-6 text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
-                Off-Plan Properties
-              </h1>
-              <p className="mb-8 text-lg text-muted-foreground md:text-xl">
-                Secure your future with off-plan properties with high returns and flexible payment plans. 
-                Explore premium developments that align with your investment goals.
-              </p>
-              <Button size="lg" className="gap-2">
-                Get Expert Advice
-              </Button>
-            </div>
-          </div>
-        </section>
+        <SecondaryPropertiesHero />
 
         {/* Property Filters */}
         <section className="border-b border-border/40 bg-background/95 backdrop-blur">
@@ -197,3 +180,193 @@ const OffPlan = () => {
 };
 
 export default OffPlan;
+
+
+function SecondaryPropertiesHero() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phoneNumber: '',
+    category: 'Buy',
+    currency: '$',
+    budgetMin: '',
+    budgetMax: '',
+    message: ''
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert('Form submitted successfully!');
+    setIsPopupOpen(false);
+  };
+
+  return (
+    <>
+      {/* Hero Section */}
+      <section
+        className="relative py-20 md:py-32 bg-gradient-to-br from-primary/10 via-background to-accent/10"
+
+      >
+        <div className="container mx-auto px-[25px] sm:px-4 md:px-[90px]">
+          <div className="text-white relative z-[1] max-w-[650px] ">
+            <span className="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">Services</span>
+            <h1 className="mb-6 text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
+              Off-Plan Properties
+            </h1>
+            <p className="mb-8 text-lg text-muted-foreground md:text-xl">
+              Secure your future with off-plan properties with high returns and flexible payment plans.
+              Explore premium developments that align with your investment goals.
+            </p>
+            <button
+              onClick={() => setIsPopupOpen(true)}
+              className="mt-6 px-5 py-3 bg-[#2a416f] hover:bg-[#35528d] text-white rounded-lg transition-all"
+            >
+              Get Expert Advice
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Popup Modal */}
+      {isPopupOpen && (
+        <div
+          className={`fixed inset-0 bg-black bg-opacity-50 flex items-start justify-center z-50 transition-all duration-500 ${isPopupOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+            }`}
+        >
+          <div className="bg-white rounded-lg w-[90%] max-w-[650px] h-[530px] mt-10 flex flex-col md:flex-row relative shadow-lg transition-all duration-500 transform animate-slideDown p-2">
+
+            {/* Close Button */}
+            <button
+              onClick={() => setIsPopupOpen(false)}
+              className="absolute top-2 right-3 text-gray-600 hover:text-gray-800 text-3xl font-light z-10"
+            >
+              ×
+            </button>
+
+            {/* Image Section */}
+            <div className="hidden md:block md:w-1/2 h-full">
+              <img
+                src="https://skyeliterealestate.com/assets/images/home/Mask%20group.png"
+                alt="House"
+                className="w-full h-full object-cover rounded-l-lg"
+              />
+            </div>
+
+            {/* Form Section */}
+            <div className="w-full md:w-1/2 p-4 flex flex-col justify-between h-full">
+              <h2 className="text-2xl font-semibold mb-2 text-gray-800 text-center">Let's Connect!</h2>
+
+              <form onSubmit={handleSubmit} className="space-y-2 flex-1 flex flex-col justify-between">
+                <div className="space-y-2">
+                  <input
+                    type="text"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleInputChange}
+                    placeholder="Full Name"
+                    required
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+                  />
+
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="Email Address"
+                    required
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+                  />
+
+                  <input
+                    type="tel"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleInputChange}
+                    placeholder="Phone Number"
+                    required
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+                  />
+
+                  <div>
+                    <h5 className="text-gray-700 font-semibold mb-1">Budget Range</h5>
+                    <div className="flex gap-2 flex-wrap">
+                      <select
+                        name="currency"
+                        value={formData.currency}
+                        onChange={handleInputChange}
+                        className="flex-[0_0_90px] px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+                      >
+                        <option value="$">USD</option>
+                        <option value="AED">AED</option>
+                      </select>
+
+                      <input
+                        type="number"
+                        name="budgetMin"
+                        value={formData.budgetMin}
+                        onChange={handleInputChange}
+                        placeholder="Min"
+                        min="0"
+                        required
+                        className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+                      />
+
+                      <input
+                        type="number"
+                        name="budgetMax"
+                        value={formData.budgetMax}
+                        onChange={handleInputChange}
+                        placeholder="Max"
+                        min="0"
+                        required
+                        className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Type your message..."
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 resize-none outline-none"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-[#1FA7E1] text-white py-3 rounded-md hover:bg-[#1890c9] transition-all mt-2"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      )}
+
+      {/* Animation Keyframes */}
+      <style>{`
+        @keyframes slideDown {
+          from { opacity: 0; transform: translateY(-20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slideDown {
+          animation: slideDown 0.4s ease-out;
+        }
+      `}</style>
+    </>
+  );
+}
+

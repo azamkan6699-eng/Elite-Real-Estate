@@ -46,7 +46,7 @@ export const PartnersSection = () => {
   return (
     <section className="border-y border-border bg-muted/30 py-12 overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
-        
+
         <h3 className="mb-8 text-center text-xl font-semibold text-muted-foreground">
           Our Official Partners
         </h3>
