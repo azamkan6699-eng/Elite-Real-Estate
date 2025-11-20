@@ -14,6 +14,9 @@ import {
   Car, Phone, Mail, MessageSquare, Wifi, Dumbbell, Shield,
   Droplets, Wind, TreePine, Users, Package, Camera
 } from "lucide-react";
+
+import { EnvelopeIcon } from '@heroicons/react/24/solid';
+
 import { useParams, Link } from "react-router-dom";
 import heroProperty1 from "@/assets/hero-property-1.jpg";
 import heroProperty2 from "@/assets/hero-property-2.jpg";
@@ -90,6 +93,50 @@ The spacious layout features floor-to-ceiling windows that flood the space with 
       initials: "MS",
     },
   };
+
+
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Form State
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    message: "",
+    agentEmail: "talalkhan@eliteconsultingsllc.com",
+  });
+
+  // Handle Input Change
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // Submit Handler
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form Submitted:", formData);
+
+    // API CALL here…
+    // await axios.post("/api/contact", formData);
+
+    alert("Message Sent!");
+
+    // Close modal + reset form
+    setIsOpen(false);
+    setFormData({
+      fullName: "",
+      email: "",
+      phone: "",
+      message: "",
+      agentEmail: "talalkhan@eliteconsultingsllc.com",
+    });
+  };
+
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -390,7 +437,6 @@ The spacious layout features floor-to-ceiling windows that flood the space with 
             <Card className="sticky top-24">
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-foreground mb-4">Contact Agent</h3>
-
                 <div className="flex items-center gap-3 mb-6">
                   <Avatar className="h-16 w-16">
                     <AvatarImage src={property.agent.image} alt={property.agent.name} />
@@ -426,10 +472,16 @@ The spacious layout features floor-to-ceiling windows that flood the space with 
                     <MessageSquare className="h-4 w-4 mr-2" />
                     Send Message
                   </Button>
-                  <Button variant="outline" className="w-full" size="lg">
+                  <Button
+                    variant="outline"
+                    className="w-full"
+                    size="lg"
+                    onClick={() => setIsOpen(true)}   // <-- OPEN MODAL
+                  >
                     <Mail className="h-4 w-4 mr-2" />
                     Email Agent
                   </Button>
+
                 </div>
 
                 <Separator className="my-6" />
@@ -441,6 +493,104 @@ The spacious layout features floor-to-ceiling windows that flood the space with 
               </CardContent>
             </Card>
           </div>
+
+
+          {/* Contact Agent Modal */}
+          {isOpen && (
+            <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+              <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg animate-fadeIn">
+
+                {/* Header */}
+                <div className="bg-[#3f547d] text-white px-6 py-4 rounded-t-2xl flex justify-between items-center">
+                  <h2 className="text-lg font-bold flex items-center gap-2">
+                     <Mail className="h-7 w-7 mr-2" />
+                    Contact Agent
+                  </h2>
+
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="text-white hover:text-gray-300"
+                  >
+                    ✕
+                  </button>
+                </div>
+
+                {/* Body */}
+                <div className="p-6 bg-gray-50 rounded-b-2xl">
+                  <form className="space-y-3" onSubmit={handleSubmit}>
+
+                    {/* Full Name */}
+                    <div>
+                      <label className="font-semibold block mb-1">Full Name</label>
+                      <input
+                        type="text"
+                        name="fullName"
+                        value={formData.fullName}
+                        onChange={handleChange}
+                        placeholder="Enter your name"
+                        className="w-full p-2 rounded-lg shadow-sm border focus:ring-2 focus:ring-blue-500 outline-none"
+                        required
+                      />
+                    </div>
+
+                    {/* Email */}
+                    <div>
+                      <label className="font-semibold block mb-1">Email Address</label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="you@example.com"
+                        className="w-full p-2 rounded-lg shadow-sm border focus:ring-2 focus:ring-blue-500 outline-none"
+                        required
+                      />
+                    </div>
+
+                    {/* Phone */}
+                    <div>
+                      <label className="font-semibold block mb-1">Phone Number</label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="+971 5X XXX XXXX"
+                        className="w-full p-2 rounded-lg shadow-sm border focus:ring-2 focus:ring-blue-500 outline-none"
+                        required
+                      />
+                    </div>
+
+                    {/* Message */}
+                    <div>
+                      <label className="font-semibold block mb-1">Your Message</label>
+                      <textarea
+                        name="message"
+                        
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder="Write your message here..."
+                        className="w-full p-2 rounded-lg shadow-sm border focus:ring-2 focus:ring-blue-500 outline-none resize-none"
+                        required
+                      ></textarea>
+                    </div>
+
+                    {/* Hidden email */}
+                    <input type="hidden" name="agentEmail" value={formData.agentEmail} />
+
+                    {/* Submit */}
+                    <button
+                      type="submit"
+                      className="w-full bg-[#3f547d] text-white py-2 rounded-lg font-medium hover:bg-[#4a69a3] transition"
+                    >
+                      Contact Us
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          )}
+
         </div>
 
         {/* Similar Properties */}
