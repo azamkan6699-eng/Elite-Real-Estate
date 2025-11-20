@@ -191,7 +191,7 @@ export const Navbar = () => {
               onClick={() => setMobileMenuOpen(false)}
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
-              Testimonials
+              Contact Us
             </Link>
             <Button className="gap-2 mt-2 w-full">
               <Phone className="h-4 w-4" />
