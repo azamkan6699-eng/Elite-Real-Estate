@@ -25,6 +25,9 @@ import heroProperty4 from "@/assets/hero-property-4.jpg";
 import heroProperty5 from "@/assets/hero-property-5.jpg";
 
 
+
+import SuccessModal from "@/components/SuccessModal";
+
 const PropertyDetails = () => {
   const { id } = useParams();
   const [selectedImage, setSelectedImage] = useState<number>(0);
@@ -135,6 +138,10 @@ The spacious layout features floor-to-ceiling windows that flood the space with 
       agentEmail: "talalkhan@eliteconsultingsllc.com",
     });
   };
+
+
+
+  const [open, setOpen] = useState(false);
 
 
 
@@ -468,7 +475,7 @@ The spacious layout features floor-to-ceiling windows that flood the space with 
                     <Phone className="h-4 w-4 mr-2" />
                     Call Now
                   </Button>
-                  <Button variant="outline" className="w-full" size="lg">
+                  <Button variant="outline" className="w-full" size="lg" onClick={() => setOpen(true)}>
                     <MessageSquare className="h-4 w-4 mr-2" />
                     Send Message
                   </Button>
@@ -499,11 +506,10 @@ The spacious layout features floor-to-ceiling windows that flood the space with 
           {isOpen && (
             <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
               <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg animate-fadeIn">
-
                 {/* Header */}
                 <div className="bg-[#3f547d] text-white px-6 py-4 rounded-t-2xl flex justify-between items-center">
                   <h2 className="text-lg font-bold flex items-center gap-2">
-                     <Mail className="h-7 w-7 mr-2" />
+                    <Mail className="h-7 w-7 mr-2" />
                     Contact Agent
                   </h2>
 
@@ -566,7 +572,7 @@ The spacious layout features floor-to-ceiling windows that flood the space with 
                       <label className="font-semibold block mb-1">Your Message</label>
                       <textarea
                         name="message"
-                        
+
                         value={formData.message}
                         onChange={handleChange}
                         placeholder="Write your message here..."
@@ -590,6 +596,15 @@ The spacious layout features floor-to-ceiling windows that flood the space with 
               </div>
             </div>
           )}
+
+
+
+
+          {/* Modal */}
+          {open && (
+            <SuccessModal isOpen={open} onClose={() => setOpen(false)} />
+          )}
+
 
         </div>
 
