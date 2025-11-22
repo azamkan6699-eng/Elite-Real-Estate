@@ -1,15 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navbar } from '@/components/Navbar'
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from "react-icons/hi";
 import { Footer } from '@/components/Footer';
+import { useParams } from 'react-router-dom';
 
 export default function Testimonials() {
+
+    const { id } = useParams();
+
+    // Scroll to top whenever component mounts or route changes
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "instant" });
+    }, [id]);
+
+    
     return (
         <>
             <Navbar />
             <ContactForm />
             <ContactCards />
-            <Footer/>
+            <Footer />
         </>
     )
 }
@@ -36,7 +46,7 @@ function ContactForm() {
     };
 
     return (
-        <div 
+        <div
             className="relative py-6 sm:py-8 lg:py-10 sm:px-6 md:px-8 lg:px-12 xl:px-[65px] 2xl:px-24 bg-cover bg-center bg-no-repeat"
             style={{
                 backgroundImage: "url('https://skyeliterealestate.com/assets/images/Secondary/Hero.png')"
@@ -44,7 +54,7 @@ function ContactForm() {
         >
             {/* Overlay for better readability */}
             <div className="absolute inset-0 bg-black/20"></div>
-            
+
             <div className="container relative z-[1]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 items-stretch">
 
@@ -182,9 +192,9 @@ const ContactCards = () => {
                                         typeof detail === "string" ? (
                                             <p key={idx} className="break-words">{detail}</p>
                                         ) : (
-                                            <a 
-                                                key={idx} 
-                                                href={detail.href} 
+                                            <a
+                                                key={idx}
+                                                href={detail.href}
                                                 className="hover:text-secondary transition-colors duration-200 block break-all"
                                             >
                                                 {detail.text}

@@ -3,6 +3,8 @@ import { Footer } from "@/components/Footer";
 import { Building2, Shield, TrendingUp, Users, Award, Globe, Heart, Target } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const values = [
   {
@@ -58,6 +60,15 @@ const stats = [
 ];
 
 const AboutUs = () => {
+
+  const { id } = useParams();
+
+  // Scroll to top whenever component mounts or route changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [id]);
+
+  
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -216,11 +227,11 @@ const AboutUs = () => {
               <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">
                 Ready to Start Your Investment Journey?
               </h2>
-              
+
               <p className="mb-8 text-lg md:text-xl opacity-90">
                 Connect with our expert team today and discover exclusive opportunities
               </p>
-              
+
               <Button size="lg" variant="secondary" className="text-base">
                 Schedule a Consultation
               </Button>

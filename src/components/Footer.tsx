@@ -1,5 +1,6 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -9,7 +10,7 @@ export const Footer = () => {
           <div>
             <img src={logo} alt="Sky Elite Real Estate" className="h-12 w-auto mb-4" />
             <p className="text-sm text-muted-foreground">
-              We turn real estate into a structured journey of lasting growth, built on foresight, 
+              We turn real estate into a structured journey of lasting growth, built on foresight,
               verified by regulation, and strengthened by long-term partnership.
             </p>
           </div>
@@ -18,17 +19,25 @@ export const Footer = () => {
             <h4 className="mb-4 text-sm font-semibold text-foreground">Quick Links</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="#home" className="hover:text-primary transition-colors">Home</a></li>
-              <li><a href="#about" className="hover:text-primary transition-colors">About Us</a></li>
+              <Link to={"/about"}>
+              <li className="hover:text-primary transition-colors mt-2">About Us</li>
+              </Link>
               <li><a href="#properties" className="hover:text-primary transition-colors">Properties</a></li>
-              <li><a href="#testimonials" className="hover:text-primary transition-colors">Testimonials</a></li>
+              <Link to={"/testimonials"}>
+              <li className="hover:text-primary transition-colors mt-2">Contact Us</li>
+              </Link>
             </ul>
           </div>
 
           <div>
             <h4 className="mb-4 text-sm font-semibold text-foreground">Legal</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Terms & Conditions</a></li>
+              <Link to={"/privacypolicy"}>
+                <li className="hover:text-primary transition-colors">Privacy Policy</li>
+              </Link>
+              <Link to={"/termsconditions"}>
+              <li className="hover:text-primary transition-colors mt-2">Terms & Conditions</li>
+              </Link>
               <li><a href="#" className="hover:text-primary transition-colors">Cookie Policy</a></li>
             </ul>
           </div>
