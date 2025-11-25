@@ -6,6 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const blogPosts = [
   {
@@ -103,94 +104,113 @@ const PropertyDetails = () => {
   }, [id]);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
+    <>
+      <Helmet>
+        <title>Our Blog</title>
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Invest with Foresight, Built on Structure" />
+        <meta
+          property="og:description"
+          content="Connecting global investors to Dubai's performance-driven properties. Structured, tax-efficient, RERA-backed investments with guaranteed returns."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://elite-real-estate-five.vercel.app/?v=2" />
+        <meta property="og:image" content="https://elite-real-estate-five.vercel.app/Thumbnail.png?v=2" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary/10 via-background to-accent/10 py-20 md:py-32">
-        <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
-          <div className="max-w-3xl">
-            <h1 className="inline-block pb-3 leading-[1.1] text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Our Blog
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground">
-              Stay updated with the latest insights, trends, and expert analysis on Dubai's real estate market.
-            </p>
+        {/* SEO Meta Tags */}
+        <meta name="description" content="Dubai luxury real estate listings with verified investment opportunities." />
+      </Helmet>
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+
+        {/* Hero Section */}
+        <section className="relative bg-gradient-to-br from-primary/10 via-background to-accent/10 py-20 md:py-32">
+          <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
+            <div className="max-w-3xl">
+              <h1 className="inline-block pb-3 leading-[1.1] text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                Our Blog
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground">
+                Stay updated with the latest insights, trends, and expert analysis on Dubai's real estate market.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Blog Grid */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
-              <Card key={post.id} className="group overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col">
-                <Link to={`/blog/${post.id}`}>
-                  <div className="relative overflow-hidden aspect-[16/10]">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-primary/90 backdrop-blur-sm text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
-                        {post.category}
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-
-                <CardHeader className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Avatar className="h-10 w-10 border-2 border-primary/20">
-                      <AvatarImage src={post.author.avatar} alt={post.author.name} />
-                      <AvatarFallback className="bg-primary/10 text-primary text-xs font-semibold">
-                        {post.author.initials}
-                      </AvatarFallback>
-                    </Avatar>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-foreground truncate">
-                        {post.author.name}
-                      </p>
-                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                        <Calendar className="h-3 w-3" />
-                        <span>{post.date}</span>
+        {/* Blog Grid */}
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {blogPosts.map((post) => (
+                <Card key={post.id} className="group overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col">
+                  <Link to={`/blog/${post.id}`}>
+                    <div className="relative overflow-hidden aspect-[16/10]">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className="bg-primary/90 backdrop-blur-sm text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
+                          {post.category}
+                        </span>
                       </div>
                     </div>
-                  </div>
+                  </Link>
 
-                  <h3 className="text-xl font-bold leading-tight group-hover:text-primary transition-colors line-clamp-2">
-                    {post.title}
-                  </h3>
-                </CardHeader>
+                  <CardHeader className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <Avatar className="h-10 w-10 border-2 border-primary/20">
+                        <AvatarImage src={post.author.avatar} alt={post.author.name} />
+                        <AvatarFallback className="bg-primary/10 text-primary text-xs font-semibold">
+                          {post.author.initials}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-foreground truncate">
+                          {post.author.name}
+                        </p>
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                          <Calendar className="h-3 w-3" />
+                          <span>{post.date}</span>
+                        </div>
+                      </div>
+                    </div>
 
-                <CardContent className="flex-grow">
-                  <p className="text-muted-foreground line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                </CardContent>
+                    <h3 className="text-xl font-bold leading-tight group-hover:text-primary transition-colors line-clamp-2">
+                      {post.title}
+                    </h3>
+                  </CardHeader>
 
-                <CardFooter className="flex items-center justify-between pt-4 border-t">
-                  <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                    <Clock className="h-4 w-4" />
-                    <span>{post.readTime}</span>
-                  </div>
-                  <Button variant="ghost" size="sm" className="group/btn" asChild>
-                    <Link to={`/blog/${post.id}`}>
-                      Read More
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
+                  <CardContent className="flex-grow">
+                    <p className="text-muted-foreground line-clamp-3">
+                      {post.excerpt}
+                    </p>
+                  </CardContent>
+
+                  <CardFooter className="flex items-center justify-between pt-4 border-t">
+                    <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                      <Clock className="h-4 w-4" />
+                      <span>{post.readTime}</span>
+                    </div>
+                    <Button variant="ghost" size="sm" className="group/btn" asChild>
+                      <Link to={`/blog/${post.id}`}>
+                        Read More
+                        <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                      </Link>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const values = [
   {
@@ -68,179 +69,198 @@ const AboutUs = () => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [id]);
 
-  
+
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <main>
-        {/* Hero Section */}
-        <section className="relative py-20 md:py-32 bg-gradient-to-br from-primary/5 via-accent/5 to-background">
-          <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
-            <div className="mx-auto max-w-4xl text-center">
-              <h1 className="mb-6 text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
-                About{" "}
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Sky Elite Real Estate
-                </span>
-              </h1>
-              <p className="mb-8 text-lg text-muted-foreground md:text-xl">
-                We turn real estate into a structured journey of lasting growth, built on foresight,
-                verified by regulation, and strengthened by long-term partnership.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Button size="lg">Contact Us</Button>
-                <Button size="lg" variant="outline">View Properties</Button>
+    <>
+      <Helmet>
+        <title>About Sky Elite Real Estate</title>
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Invest with Foresight, Built on Structure" />
+        <meta
+          property="og:description"
+          content="Connecting global investors to Dubai's performance-driven properties. Structured, tax-efficient, RERA-backed investments with guaranteed returns."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://elite-real-estate-five.vercel.app/?v=2" />
+        <meta property="og:image" content="https://elite-real-estate-five.vercel.app/Thumbnail.png?v=2" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        {/* SEO Meta Tags */}
+        <meta name="description" content="Dubai luxury real estate listings with verified investment opportunities." />
+      </Helmet>
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <main>
+          {/* Hero Section */}
+          <section className="relative py-20 md:py-32 bg-gradient-to-br from-primary/5 via-accent/5 to-background">
+            <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
+              <div className="mx-auto max-w-4xl text-center">
+                <h1 className="mb-6 text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
+                  About{" "}
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    Sky Elite Real Estate
+                  </span>
+                </h1>
+                <p className="mb-8 text-lg text-muted-foreground md:text-xl">
+                  We turn real estate into a structured journey of lasting growth, built on foresight,
+                  verified by regulation, and strengthened by long-term partnership.
+                </p>
+                <div className="flex flex-wrap justify-center gap-4">
+                  <Button size="lg">Contact Us</Button>
+                  <Button size="lg" variant="outline">View Properties</Button>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Stats Section */}
-        <section className="border-y border-border bg-muted/30 py-16">
-          <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
-            <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="mb-2 text-3xl font-bold text-primary md:text-4xl">
-                    {stat.value}
+          {/* Stats Section */}
+          <section className="border-y border-border bg-muted/30 py-16">
+            <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
+              <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+                {stats.map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className="mb-2 text-3xl font-bold text-primary md:text-4xl">
+                      {stat.value}
+                    </div>
+                    <div className="text-sm text-muted-foreground md:text-base">
+                      {stat.label}
+                    </div>
                   </div>
-                  <div className="text-sm text-muted-foreground md:text-base">
-                    {stat.label}
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Our Story Section */}
+          <section className="py-16 md:py-24 bg-background">
+            <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
+              <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+                <div>
+                  <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
+                    Our Story
+                  </h2>
+                  <div className="space-y-4 text-muted-foreground">
+                    <p>
+                      Founded with a vision to transform Dubai's real estate landscape, Sky Elite Real Estate
+                      has grown to become one of the most trusted names in luxury property investment.
+                    </p>
+                    <p>
+                      Our journey began with a simple belief: that real estate investment should be transparent,
+                      structured, and accessible to international investors seeking long-term value.
+                    </p>
+                    <p>
+                      Today, we pride ourselves on our track record of delivering exceptional properties backed
+                      by RERA regulation, offering guaranteed returns up to 10% annually, and building lasting
+                      partnerships with clients from around the world.
+                    </p>
                   </div>
                 </div>
-              ))}
+                <div className="relative">
+                  <div className="aspect-[4/3] overflow-hidden rounded-lg bg-muted">
+                    <img
+                      src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800"
+                      alt="Dubai Skyline"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Our Story Section */}
-        <section className="py-16 md:py-24 bg-background">
-          <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
-            <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-              <div>
-                <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
-                  Our Story
+          {/* Our Values */}
+          <section className="py-16 md:py-24 bg-muted/30">
+            <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
+              <div className="mb-12 text-center">
+                <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
+                  Our Core Values
                 </h2>
-                <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    Founded with a vision to transform Dubai's real estate landscape, Sky Elite Real Estate
-                    has grown to become one of the most trusted names in luxury property investment.
-                  </p>
-                  <p>
-                    Our journey began with a simple belief: that real estate investment should be transparent,
-                    structured, and accessible to international investors seeking long-term value.
-                  </p>
-                  <p>
-                    Today, we pride ourselves on our track record of delivering exceptional properties backed
-                    by RERA regulation, offering guaranteed returns up to 10% annually, and building lasting
-                    partnerships with clients from around the world.
-                  </p>
-                </div>
+                <p className="mx-auto max-w-2xl text-muted-foreground">
+                  The principles that guide everything we do
+                </p>
               </div>
-              <div className="relative">
-                <div className="aspect-[4/3] overflow-hidden rounded-lg bg-muted">
-                  <img
-                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800"
-                    alt="Dubai Skyline"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
+
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                {values.map((value, index) => {
+                  const Icon = value.icon;
+                  return (
+                    <Card key={index} className="border-none shadow-sm hover:shadow-md transition-shadow">
+                      <CardContent className="pt-6">
+                        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                          <Icon className="h-6 w-6 text-primary" />
+                        </div>
+                        <h3 className="mb-2 text-lg font-semibold text-foreground">
+                          {value.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {value.description}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Our Values */}
-        <section className="py-16 md:py-24 bg-muted/30">
-          <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
-            <div className="mb-12 text-center">
-              <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
-                Our Core Values
-              </h2>
-              <p className="mx-auto max-w-2xl text-muted-foreground">
-                The principles that guide everything we do
-              </p>
+          {/* Why Choose Us */}
+          <section className="py-16 md:py-24 bg-background">
+            <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
+              <div className="mb-12 text-center">
+                <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
+                  Why Choose Sky Elite Real Estate
+                </h2>
+                <p className="mx-auto max-w-2xl text-muted-foreground">
+                  What sets us apart in Dubai's competitive real estate market
+                </p>
+              </div>
+
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                {features.map((feature, index) => {
+                  const Icon = feature.icon;
+                  return (
+                    <Card key={index} className="border-none shadow-sm hover:shadow-md transition-shadow">
+                      <CardContent className="pt-6">
+                        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                          <Icon className="h-6 w-6 text-primary" />
+                        </div>
+                        <h3 className="mb-2 text-lg font-semibold text-foreground">
+                          {feature.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {feature.description}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
             </div>
+          </section>
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {values.map((value, index) => {
-                const Icon = value.icon;
-                return (
-                  <Card key={index} className="border-none shadow-sm hover:shadow-md transition-shadow">
-                    <CardContent className="pt-6">
-                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                        <Icon className="h-6 w-6 text-primary" />
-                      </div>
-                      <h3 className="mb-2 text-lg font-semibold text-foreground">
-                        {value.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {value.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+          {/* CTA Section */}
+          <section className="bg-gradient-to-r from-primary to-accent py-16 md:py-20 text-white">
+            <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
+              <div className="mx-auto max-w-4xl text-center">
+                <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">
+                  Ready to Start Your Investment Journey?
+                </h2>
+
+                <p className="mb-8 text-lg md:text-xl opacity-90">
+                  Connect with our expert team today and discover exclusive opportunities
+                </p>
+
+                <Button size="lg" variant="secondary" className="text-base">
+                  Schedule a Consultation
+                </Button>
+              </div>
             </div>
-          </div>
-        </section>
-
-        {/* Why Choose Us */}
-        <section className="py-16 md:py-24 bg-background">
-          <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
-            <div className="mb-12 text-center">
-              <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
-                Why Choose Sky Elite Real Estate
-              </h2>
-              <p className="mx-auto max-w-2xl text-muted-foreground">
-                What sets us apart in Dubai's competitive real estate market
-              </p>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {features.map((feature, index) => {
-                const Icon = feature.icon;
-                return (
-                  <Card key={index} className="border-none shadow-sm hover:shadow-md transition-shadow">
-                    <CardContent className="pt-6">
-                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                        <Icon className="h-6 w-6 text-primary" />
-                      </div>
-                      <h3 className="mb-2 text-lg font-semibold text-foreground">
-                        {feature.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {feature.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="bg-gradient-to-r from-primary to-accent py-16 md:py-20 text-white">
-          <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
-            <div className="mx-auto max-w-4xl text-center">
-              <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">
-                Ready to Start Your Investment Journey?
-              </h2>
-
-              <p className="mb-8 text-lg md:text-xl opacity-90">
-                Connect with our expert team today and discover exclusive opportunities
-              </p>
-
-              <Button size="lg" variant="secondary" className="text-base">
-                Schedule a Consultation
-              </Button>
-            </div>
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </div>
+          </section>
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 };
 

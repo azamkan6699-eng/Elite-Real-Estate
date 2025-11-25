@@ -3,6 +3,7 @@ import { Navbar } from '@/components/Navbar'
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from "react-icons/hi";
 import { Footer } from '@/components/Footer';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 export default function Testimonials() {
 
@@ -13,9 +14,27 @@ export default function Testimonials() {
         window.scrollTo({ top: 0, behavior: "instant" });
     }, [id]);
 
-    
+
     return (
         <>
+            <Helmet>
+                <title>Contact Us</title>
+                {/* Open Graph Meta Tags */}
+                <meta property="og:title" content="Invest with Foresight, Built on Structure" />
+                <meta
+                    property="og:description"
+                    content="Connecting global investors to Dubai's performance-driven properties. Structured, tax-efficient, RERA-backed investments with guaranteed returns."
+                />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://elite-real-estate-five.vercel.app/?v=2" />
+                <meta property="og:image" content="https://elite-real-estate-five.vercel.app/Thumbnail.png?v=2" />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+
+                {/* SEO Meta Tags */}
+                <meta name="description" content="Dubai luxury real estate listings with verified investment opportunities." />
+            </Helmet>
+
             <Navbar />
             <ContactForm />
             <ContactCards />

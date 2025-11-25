@@ -16,18 +16,39 @@ import { Button } from "@/components/ui/button";
 
 // ICONS
 import { Search } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 
 export default function Rental() {
+
     return (
-        <div>
-            <Navbar />
-            <SecondaryPropertiesHero />
-            <PropertySearchForm />
-            <ApartmentsList />
-            <PartnersSection />
-            <Footer />
-        </div>
+        <>
+            <Helmet>
+                <title>Rental Properties</title>
+                {/* Open Graph Meta Tags */}
+                <meta property="og:title" content="Invest with Foresight, Built on Structure" />
+                <meta
+                    property="og:description"
+                    content="Connecting global investors to Dubai's performance-driven properties. Structured, tax-efficient, RERA-backed investments with guaranteed returns."
+                />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://elite-real-estate-five.vercel.app/?v=2" />
+                <meta property="og:image" content="https://elite-real-estate-five.vercel.app/share-image.jpg?v=2" />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+
+                {/* SEO Meta Tags */}
+                <meta name="description" content="Dubai luxury real estate listings with verified investment opportunities." />
+            </Helmet>
+            <div>
+                <Navbar />
+                <SecondaryPropertiesHero />
+                <PropertySearchForm />
+                <ApartmentsList />
+                <PartnersSection />
+                <Footer />
+            </div>
+        </>
     )
 }
 
