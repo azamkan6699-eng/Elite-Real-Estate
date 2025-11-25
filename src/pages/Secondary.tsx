@@ -4,49 +4,31 @@ import { Footer } from '@/components/Footer';
 import { PropertyCard } from '@/components/PropertyCard';
 // SHADCN UI
 import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
+    Select,
+    SelectTrigger,
+    SelectValue,
+    SelectContent,
+    SelectItem,
 } from "@/components/ui/select";
 
 import { Button } from "@/components/ui/button";
 
 // ICONS
 import { Search } from "lucide-react";
-import { Helmet } from 'react-helmet-async';
 
 
 export default function Secondary() {
   return (
     <>
-      <Helmet>
-        <title>Secondary Properties</title>
-        {/* Open Graph Meta Tags */}
-        <meta property="og:title" content="Invest with Foresight, Built on Structure" />
-        <meta
-          property="og:description"
-          content="Connecting global investors to Dubai's performance-driven properties. Structured, tax-efficient, RERA-backed investments with guaranteed returns."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://elite-real-estate-five.vercel.app/?v=2" />
-        <meta property="og:image" content="https://elite-real-estate-five.vercel.app/share-image.jpg?v=2" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+    <div>
+      <Navbar />
+      <SecondaryPropertiesHero />
+      <PropertySearchForm />
+      <Property />
+      <PartnersSection />
+      <Footer />
 
-        {/* SEO Meta Tags */}
-        <meta name="description" content="Dubai luxury real estate listings with verified investment opportunities." />
-      </Helmet>
-      <div>
-        <Navbar />
-        <SecondaryPropertiesHero />
-        <PropertySearchForm />
-        <Property />
-        <PartnersSection />
-        <Footer />
-
-      </div>
+    </div>
     </>
   )
 }
@@ -107,7 +89,7 @@ function SecondaryPropertiesHero() {
 
       {/* Popup Modal */}
       {isPopupOpen && (
-        <div
+       <div
           className={`fixed inset-0 bg-black bg-opacity-50 flex items-start justify-center z-50 transition-all duration-500 ${isPopupOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
             }`}
         >
@@ -262,75 +244,75 @@ function PropertySearchForm() {
   return (
     <>
       {/* Property Filters */}
-      <section className="border-b border-border/40 bg-background/95 backdrop-blur">
-        <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24 py-8">
-          <div className="grid gap-4 md:grid-cols-5 items-end">
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-foreground">Select City</label>
-              <Select defaultValue="dubai">
-                <SelectTrigger>
-                  <SelectValue placeholder="Select city" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="dubai">Dubai</SelectItem>
-                  <SelectItem value="abu-dhabi">Abu Dhabi</SelectItem>
-                  <SelectItem value="sharjah">Sharjah</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-foreground">Property Type</label>
-              <Select defaultValue="apartment">
-                <SelectTrigger>
-                  <SelectValue placeholder="Choose property" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="apartment">Apartment</SelectItem>
-                  <SelectItem value="villa">Villa</SelectItem>
-                  <SelectItem value="townhouse">Townhouse</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-foreground">Bedrooms</label>
-              <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Choose bedroom" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="studio">Studio</SelectItem>
-                  <SelectItem value="1">1 Bedroom</SelectItem>
-                  <SelectItem value="2">2 Bedrooms</SelectItem>
-                  <SelectItem value="3">3 Bedrooms</SelectItem>
-                  <SelectItem value="4+">4+ Bedrooms</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-foreground">Price Range</label>
-              <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Price" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="0-500k">AED 0 - 500k</SelectItem>
-                  <SelectItem value="500k-1m">AED 500k - 1M</SelectItem>
-                  <SelectItem value="1m-2m">AED 1M - 2M</SelectItem>
-                  <SelectItem value="2m+">AED 2M+</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <Button className="gap-2">
-              <search className="h-4 w-4" />
-              Search
-            </Button>
-          </div>
-        </div>
-      </section>
+                  <section className="border-b border-border/40 bg-background/95 backdrop-blur">
+                      <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24 py-8">
+                          <div className="grid gap-4 md:grid-cols-5 items-end">
+                              <div className="space-y-2">
+                                  <label className="text-sm font-medium text-foreground">Select City</label>
+                                  <Select defaultValue="dubai">
+                                      <SelectTrigger>
+                                          <SelectValue placeholder="Select city" />
+                                      </SelectTrigger>
+                                      <SelectContent>
+                                          <SelectItem value="dubai">Dubai</SelectItem>
+                                          <SelectItem value="abu-dhabi">Abu Dhabi</SelectItem>
+                                          <SelectItem value="sharjah">Sharjah</SelectItem>
+                                      </SelectContent>
+                                  </Select>
+                              </div>
+      
+                              <div className="space-y-2">
+                                  <label className="text-sm font-medium text-foreground">Property Type</label>
+                                  <Select defaultValue="apartment">
+                                      <SelectTrigger>
+                                          <SelectValue placeholder="Choose property" />
+                                      </SelectTrigger>
+                                      <SelectContent>
+                                          <SelectItem value="apartment">Apartment</SelectItem>
+                                          <SelectItem value="villa">Villa</SelectItem>
+                                          <SelectItem value="townhouse">Townhouse</SelectItem>
+                                      </SelectContent>
+                                  </Select>
+                              </div>
+      
+                              <div className="space-y-2">
+                                  <label className="text-sm font-medium text-foreground">Bedrooms</label>
+                                  <Select>
+                                      <SelectTrigger>
+                                          <SelectValue placeholder="Choose bedroom" />
+                                      </SelectTrigger>
+                                      <SelectContent>
+                                          <SelectItem value="studio">Studio</SelectItem>
+                                          <SelectItem value="1">1 Bedroom</SelectItem>
+                                          <SelectItem value="2">2 Bedrooms</SelectItem>
+                                          <SelectItem value="3">3 Bedrooms</SelectItem>
+                                          <SelectItem value="4+">4+ Bedrooms</SelectItem>
+                                      </SelectContent>
+                                  </Select>
+                              </div>
+      
+                              <div className="space-y-2">
+                                  <label className="text-sm font-medium text-foreground">Price Range</label>
+                                  <Select>
+                                      <SelectTrigger>
+                                          <SelectValue placeholder="Price" />
+                                      </SelectTrigger>
+                                      <SelectContent>
+                                          <SelectItem value="0-500k">AED 0 - 500k</SelectItem>
+                                          <SelectItem value="500k-1m">AED 500k - 1M</SelectItem>
+                                          <SelectItem value="1m-2m">AED 1M - 2M</SelectItem>
+                                          <SelectItem value="2m+">AED 2M+</SelectItem>
+                                      </SelectContent>
+                                  </Select>
+                              </div>
+      
+                              <Button className="gap-2">
+                                  <search className="h-4 w-4" />
+                                  Search
+                              </Button>
+                          </div>
+                      </div>
+                  </section>
     </>
   );
 }
@@ -346,63 +328,63 @@ export const Property = () => {
   };
 
 
-  const offPlanProperties = [
-    {
-      id: "1",
-      title: "Stylish Studio in Al Haseen 4",
-      location: "Al Haseen-4, Dubai",
-      price: "AED 379,000",
-      type: "Off-Plan",
-      area: "379 sq.ft",
-      addedDate: "03 Sep 2025",
-      image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
-    },
-    {
-      id: "2",
-      title: "1 BHK in Dugasta Al Haseen 4",
-      location: "Al Haseen-4, Dubai",
-      price: "AED 1,427,989",
-      type: "Off-Plan",
-      bedrooms: 1,
-      area: "650 sq.ft",
-      addedDate: "03 Sep 2025",
-      image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80",
-    },
-    {
-      id: "3",
-      title: "Affordable Luxury Apartment",
-      location: "Al Haseen-4, Dubai",
-      price: "AED 538,888",
-      type: "Off-Plan",
-      bedrooms: 1,
-      area: "550 sq.ft",
-      addedDate: "30 Jul 2025",
-      image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
-    },
-    {
-      id: "4",
-      title: "Premium 1 BHK with High Floor Views",
-      location: "Al Haseen-4, Dubai",
-      price: "AED 521,125",
-      type: "Off-Plan",
-      bedrooms: 1,
-      area: "580 sq.ft",
-      addedDate: "30 Jul 2025",
-      image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
-    },
-    {
-      id: "5",
-      title: "Luxury Villas Handing Over In 2029",
-      location: "Selvara, Grand Polo Club & Resort, Dubai",
-      price: "AED 6,286,888",
-      type: "Off-Plan",
-      bedrooms: 4,
-      area: "3500 sq.ft",
-      addedDate: "30 Jul 2025",
-      image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
-      featured: true,
-    },
-  ];
+const offPlanProperties = [
+  {
+    id: "1",
+    title: "Stylish Studio in Al Haseen 4",
+    location: "Al Haseen-4, Dubai",
+    price: "AED 379,000",
+    type: "Off-Plan",
+    area: "379 sq.ft",
+    addedDate: "03 Sep 2025",
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+  },
+  {
+    id: "2",
+    title: "1 BHK in Dugasta Al Haseen 4",
+    location: "Al Haseen-4, Dubai",
+    price: "AED 1,427,989",
+    type: "Off-Plan",
+    bedrooms: 1,
+    area: "650 sq.ft",
+    addedDate: "03 Sep 2025",
+    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80",
+  },
+  {
+    id: "3",
+    title: "Affordable Luxury Apartment",
+    location: "Al Haseen-4, Dubai",
+    price: "AED 538,888",
+    type: "Off-Plan",
+    bedrooms: 1,
+    area: "550 sq.ft",
+    addedDate: "30 Jul 2025",
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+  },
+  {
+    id: "4",
+    title: "Premium 1 BHK with High Floor Views",
+    location: "Al Haseen-4, Dubai",
+    price: "AED 521,125",
+    type: "Off-Plan",
+    bedrooms: 1,
+    area: "580 sq.ft",
+    addedDate: "30 Jul 2025",
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+  },
+  {
+    id: "5",
+    title: "Luxury Villas Handing Over In 2029",
+    location: "Selvara, Grand Polo Club & Resort, Dubai",
+    price: "AED 6,286,888",
+    type: "Off-Plan",
+    bedrooms: 4,
+    area: "3500 sq.ft",
+    addedDate: "30 Jul 2025",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    featured: true,
+  },
+];
 
 
   return (
