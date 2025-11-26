@@ -3,25 +3,29 @@ import React, { useEffect } from 'react'
 import { Shield, Settings, Share2, Cookie, Lock, UserCheck, RefreshCw } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 export default function PrivacyPolicy() {
 
-    const { id } = useParams();
-    
-      // Scroll to top whenever component mounts or route changes
-      useEffect(() => {
-        window.scrollTo({ top: 0, behavior: "instant" });
-      }, [id]);
-    
+  const { id } = useParams();
+
+  // Scroll to top whenever component mounts or route changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [id]);
+
   return (
     <>
-    <div>
+      <Helmet>
+        <title>Sky Elite Real Estate | Dubai Property Investment & Luxury Real Estate</title>
+      </Helmet>
+      <div>
         <Navbar />
         <Privacy />
         <Footer />
-    </div>
+      </div>
     </>
-    
+
   )
 }
 

@@ -102,196 +102,202 @@ const BlogPost = () => {
   const relatedPosts = blogPosts.filter(p => p.id !== post.id).slice(0, 2);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
+    <>
+      <Helmet>
+        <title>Sky Elite Real Estate | Dubai Property Investment & Luxury Real Estate</title>
+      </Helmet>
 
-      {/* Hero Section */}
-      <article className="flex-1">
-        <div className="relative bg-gradient-to-br from-primary/10 via-background to-accent/10 py-12 md:py-16">
-          <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
-            <Link to="/blog" className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors mb-6 group">
-              <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-              Back to Blog
-            </Link>
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
 
-            <div className="max-w-4xl">
-              <div className="mb-4">
-                <span className="bg-primary/90 backdrop-blur-sm text-primary-foreground px-4 py-1.5 rounded-full text-sm font-medium">
-                  {post.category}
-                </span>
-              </div>
+        {/* Hero Section */}
+        <article className="flex-1">
+          <div className="relative bg-gradient-to-br from-primary/10 via-background to-accent/10 py-12 md:py-16">
+            <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
+              <Link to="/blog" className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors mb-6 group">
+                <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+                Back to Blog
+              </Link>
 
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                {post.title}
-              </h1>
-
-              <div className="flex flex-wrap items-center gap-4 md:gap-6 text-sm text-muted-foreground mb-8">
-                <div className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4" />
-                  <span>{post.date}</span>
+              <div className="max-w-4xl">
+                <div className="mb-4">
+                  <span className="bg-primary/90 backdrop-blur-sm text-primary-foreground px-4 py-1.5 rounded-full text-sm font-medium">
+                    {post.category}
+                  </span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="h-4 w-4" />
-                  <span>{post.readTime}</span>
+
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                  {post.title}
+                </h1>
+
+                <div className="flex flex-wrap items-center gap-4 md:gap-6 text-sm text-muted-foreground mb-8">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="h-4 w-4" />
+                    <span>{post.date}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-4 w-4" />
+                    <span>{post.readTime}</span>
+                  </div>
+                  <Button variant="ghost" size="sm" className="gap-2">
+                    <Share2 className="h-4 w-4" />
+                    Share
+                  </Button>
                 </div>
-                <Button variant="ghost" size="sm" className="gap-2">
-                  <Share2 className="h-4 w-4" />
-                  Share
-                </Button>
-              </div>
 
-              <div className="flex items-center gap-4">
-                <Avatar className="h-14 w-14 border-2 border-primary/20">
-                  <AvatarImage src={post.author.avatar} alt={post.author.name} />
-                  <AvatarFallback className="bg-primary/10 text-primary font-semibold">
-                    {post.author.initials}
-                  </AvatarFallback>
-                </Avatar>
-                <div>
-                  <p className="font-semibold text-foreground">{post.author.name}</p>
-                  <p className="text-sm text-muted-foreground">Investment Expert</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Featured Image */}
-        <div className="relative sm:w-full md:h-[400px] lg:h-[500px] overflow-hidden px-[28px] sm:px-[97px] "> 
-          <img src={post.image}
-           alt={post.title}
-          className="object-cover rounded-md w-[700px] h-[] sm:h-[100%] sm:w-[100%]"/> 
-          </div>
-        
-        {/* Article Content */}
-        <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24 py-12 md:py-16">
-          <div className="max-w-4xl mx-auto">
-            {/* Introduction */}
-            {post.content && (
-              <div className="space-y-8">
-                <p className="text-lg md:text-xl leading-relaxed text-foreground/90">
-                  {post.content.intro}
-                </p>
-
-                <Separator className="my-8" />
-
-                {/* Article Sections */}
-                {post.content.sections.map((section, index) => (
-                  <section key={index} className="space-y-6 scroll-mt-24" id={`section-${index}`}>
-                    <div className="space-y-3">
-                      <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                        {section.heading}
-                      </h2>
-                      {section.subheading && (
-                        <h3 className="text-xl md:text-2xl font-semibold text-muted-foreground">
-                          {section.subheading}
-                        </h3>
-                      )}
-                    </div>
-
-                    <div className="space-y-4">
-                      {section.paragraphs.map((paragraph, pIndex) => (
-                        <p key={pIndex} className="text-base md:text-lg leading-relaxed text-foreground/80">
-                          {paragraph}
-                        </p>
-                      ))}
-                    </div>
-
-                    {index < post.content.sections.length - 1 && (
-                      <Separator className="my-8" />
-                    )}
-                  </section>
-                ))}
-
-                {/* Conclusion */}
-                <div className="bg-muted/50 rounded-lg p-6 md:p-8 border border-border/50 space-y-4">
-                  <h2 className="text-xl md:text-2xl font-bold text-foreground">
-                    Final Thoughts
-                  </h2>
-                  <p className="text-base md:text-lg leading-relaxed text-foreground/80">
-                    {post.content.conclusion}
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {/* Author Bio */}
-            <Card className="mt-12 border-2 border-primary/10">
-              <CardContent className="p-6 md:p-8">
-                <div className="flex flex-col sm:flex-row gap-6">
-                  <Avatar className="h-20 w-20 border-2 border-primary/20">
+                <div className="flex items-center gap-4">
+                  <Avatar className="h-14 w-14 border-2 border-primary/20">
                     <AvatarImage src={post.author.avatar} alt={post.author.name} />
-                    <AvatarFallback className="bg-primary/10 text-primary text-lg font-semibold">
+                    <AvatarFallback className="bg-primary/10 text-primary font-semibold">
                       {post.author.initials}
                     </AvatarFallback>
                   </Avatar>
-                  <div className="flex-1 space-y-2">
-                    <h3 className="text-xl font-bold text-foreground">About {post.author.name}</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {post.author.bio}
+                  <div>
+                    <p className="font-semibold text-foreground">{post.author.name}</p>
+                    <p className="text-sm text-muted-foreground">Investment Expert</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Featured Image */}
+          <div className="relative sm:w-full md:h-[400px] lg:h-[500px] overflow-hidden px-[28px] sm:px-[97px] ">
+            <img src={post.image}
+              alt={post.title}
+              className="object-cover rounded-md w-[700px] h-[] sm:h-[100%] sm:w-[100%]" />
+          </div>
+
+          {/* Article Content */}
+          <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24 py-12 md:py-16">
+            <div className="max-w-4xl mx-auto">
+              {/* Introduction */}
+              {post.content && (
+                <div className="space-y-8">
+                  <p className="text-lg md:text-xl leading-relaxed text-foreground/90">
+                    {post.content.intro}
+                  </p>
+
+                  <Separator className="my-8" />
+
+                  {/* Article Sections */}
+                  {post.content.sections.map((section, index) => (
+                    <section key={index} className="space-y-6 scroll-mt-24" id={`section-${index}`}>
+                      <div className="space-y-3">
+                        <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                          {section.heading}
+                        </h2>
+                        {section.subheading && (
+                          <h3 className="text-xl md:text-2xl font-semibold text-muted-foreground">
+                            {section.subheading}
+                          </h3>
+                        )}
+                      </div>
+
+                      <div className="space-y-4">
+                        {section.paragraphs.map((paragraph, pIndex) => (
+                          <p key={pIndex} className="text-base md:text-lg leading-relaxed text-foreground/80">
+                            {paragraph}
+                          </p>
+                        ))}
+                      </div>
+
+                      {index < post.content.sections.length - 1 && (
+                        <Separator className="my-8" />
+                      )}
+                    </section>
+                  ))}
+
+                  {/* Conclusion */}
+                  <div className="bg-muted/50 rounded-lg p-6 md:p-8 border border-border/50 space-y-4">
+                    <h2 className="text-xl md:text-2xl font-bold text-foreground">
+                      Final Thoughts
+                    </h2>
+                    <p className="text-base md:text-lg leading-relaxed text-foreground/80">
+                      {post.content.conclusion}
                     </p>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
+              )}
 
-        {/* Related Posts */}
-        {relatedPosts.length > 0 && (
-          <section className="bg-muted/30 py-12 md:py-16">
-            <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
-              <h2 className="text-2xl md:text-3xl font-bold mb-8">Related Articles</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl">
-                {relatedPosts.map((relatedPost) => (
-                  <Card key={relatedPost.id} className="group overflow-hidden hover:shadow-xl transition-all duration-300">
-                    <div className="relative overflow-hidden aspect-[16/10]">
-                      <img
-                        src={relatedPost.image}
-                        alt={relatedPost.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute top-4 left-4">
-                        <span className="bg-primary/90 backdrop-blur-sm text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
-                          {relatedPost.category}
-                        </span>
-                      </div>
-                    </div>
-
-                    <CardHeader>
-                      <h3 className="text-xl font-bold leading-tight group-hover:text-primary transition-colors line-clamp-2">
-                        {relatedPost.title}
-                      </h3>
-                    </CardHeader>
-
-                    <CardContent>
-                      <p className="text-muted-foreground line-clamp-2">
-                        {relatedPost.excerpt}
+              {/* Author Bio */}
+              <Card className="mt-12 border-2 border-primary/10">
+                <CardContent className="p-6 md:p-8">
+                  <div className="flex flex-col sm:flex-row gap-6">
+                    <Avatar className="h-20 w-20 border-2 border-primary/20">
+                      <AvatarImage src={post.author.avatar} alt={post.author.name} />
+                      <AvatarFallback className="bg-primary/10 text-primary text-lg font-semibold">
+                        {post.author.initials}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div className="flex-1 space-y-2">
+                      <h3 className="text-xl font-bold text-foreground">About {post.author.name}</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {post.author.bio}
                       </p>
-                    </CardContent>
-
-                    <CardFooter className="flex items-center justify-between pt-4 border-t">
-                      <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                        <Clock className="h-4 w-4" />
-                        <span>{relatedPost.readTime}</span>
-                      </div>
-                      <Button variant="ghost" size="sm" className="group/btn" asChild>
-                        <Link to={`/blog/${relatedPost.id}`}>
-                          Read More
-                          <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                        </Link>
-                      </Button>
-                    </CardFooter>
-                  </Card>
-                ))}
-              </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
-          </section>
-        )}
-      </article>
+          </div>
 
-      <Footer />
-    </div>
+          {/* Related Posts */}
+          {relatedPosts.length > 0 && (
+            <section className="bg-muted/30 py-12 md:py-16">
+              <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
+                <h2 className="text-2xl md:text-3xl font-bold mb-8">Related Articles</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl">
+                  {relatedPosts.map((relatedPost) => (
+                    <Card key={relatedPost.id} className="group overflow-hidden hover:shadow-xl transition-all duration-300">
+                      <div className="relative overflow-hidden aspect-[16/10]">
+                        <img
+                          src={relatedPost.image}
+                          alt={relatedPost.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div className="absolute top-4 left-4">
+                          <span className="bg-primary/90 backdrop-blur-sm text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
+                            {relatedPost.category}
+                          </span>
+                        </div>
+                      </div>
+
+                      <CardHeader>
+                        <h3 className="text-xl font-bold leading-tight group-hover:text-primary transition-colors line-clamp-2">
+                          {relatedPost.title}
+                        </h3>
+                      </CardHeader>
+
+                      <CardContent>
+                        <p className="text-muted-foreground line-clamp-2">
+                          {relatedPost.excerpt}
+                        </p>
+                      </CardContent>
+
+                      <CardFooter className="flex items-center justify-between pt-4 border-t">
+                        <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                          <Clock className="h-4 w-4" />
+                          <span>{relatedPost.readTime}</span>
+                        </div>
+                        <Button variant="ghost" size="sm" className="group/btn" asChild>
+                          <Link to={`/blog/${relatedPost.id}`}>
+                            Read More
+                            <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                          </Link>
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+        </article>
+
+        <Footer />
+      </div>
+    </>
   );
 };
 

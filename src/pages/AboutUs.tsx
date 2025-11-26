@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const values = [
   {
@@ -71,6 +72,9 @@ const AboutUs = () => {
   
   return (
     <>
+    <Helmet>
+      <title>Sky Elite Real Estate | Dubai Property Investment & Luxury Real Estate</title>
+    </Helmet>
     <div className="min-h-screen bg-background">
       <Navbar />
       <main>

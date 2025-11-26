@@ -146,6 +146,10 @@ The spacious layout features floor-to-ceiling windows that flood the space with 
 
 
   return (
+    <>
+     <Helmet>
+            <title>Sky Elite Real Estate | Dubai Property Investment & Luxury Real Estate</title>
+          </Helmet>
     <div className="min-h-screen bg-background">
       <Navbar />
 
@@ -649,6 +653,7 @@ The spacious layout features floor-to-ceiling windows that flood the space with 
 
       <Footer />
     </div>
+    </>
   );
 };
 

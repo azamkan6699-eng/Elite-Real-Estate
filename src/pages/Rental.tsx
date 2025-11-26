@@ -16,12 +16,16 @@ import { Button } from "@/components/ui/button";
 
 // ICONS
 import { Search } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 
 export default function Rental() {
 
     return (
         <>
+            <Helmet>
+                <title>Sky Elite Real Estate | Dubai Property Investment & Luxury Real Estate</title>
+            </Helmet>
             <div>
                 <Navbar />
                 <SecondaryPropertiesHero />

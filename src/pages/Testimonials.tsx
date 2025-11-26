@@ -3,6 +3,7 @@ import { Navbar } from '@/components/Navbar'
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from "react-icons/hi";
 import { Footer } from '@/components/Footer';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 export default function Testimonials() {
 
@@ -13,9 +14,12 @@ export default function Testimonials() {
         window.scrollTo({ top: 0, behavior: "instant" });
     }, [id]);
 
-    
+
     return (
         <>
+            <Helmet>
+                <title>Sky Elite Real Estate | Dubai Property Investment & Luxury Real Estate</title>
+            </Helmet>
             <Navbar />
             <ContactForm />
             <ContactCards />

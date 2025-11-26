@@ -50,6 +50,10 @@ const AlHaseenResidences = () => {
   };
 
   return (
+    <>
+    <Helmet>
+          <title>Sky Elite Real Estate | Dubai Property Investment & Luxury Real Estate</title>
+        </Helmet>
     <div className="min-h-screen bg-background">
       <Navbar />
       
@@ -528,6 +532,8 @@ const AlHaseenResidences = () => {
 
       <Footer />
     </div>
+    </>
+
   );
 };
 
