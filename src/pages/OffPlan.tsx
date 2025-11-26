@@ -69,13 +69,13 @@ const OffPlan = () => {
   return (
     <>
       <Helmet>
-        <title>Off-Plan Properties</title>
-        <meta property="og:title" content="Luxurious 3-Bedroom Apartment in Downtown Dubai" />
-        <meta property="og:description"
-          content="Connecting global investors to Dubai's performance-driven properties. Structured, tax-efficient, RERA-backed investments with guaranteed returns." />
+        <title>Off-Plan Properties | Sky Elite Real Estate</title>
+        <meta name="description" content="Explore Dubai off-plan properties for investment. Structured, RERA-backed, high-return real estate opportunities." />
+        <meta property="og:title" content="Off-Plan Properties in Dubai" />
+        <meta property="og:description" content="Connecting global investors to Dubai's performance-driven properties. Structured, tax-efficient, RERA-backed investments with guaranteed returns." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://elite-real-estate-five.vercel.app/?v=2" />
-        <meta property="og:image" content="https://elite-real-estate-five.vercel.app/Thumbnail.jpg?v=2" />
+        <meta property="og:url" content="https://elite-real-estate-five.vercel.app/off-plan" />
+        <meta property="og:image" content="https://elite-real-estate-five.vercel.app/Thumbnail.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
       </Helmet>
