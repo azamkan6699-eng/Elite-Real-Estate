@@ -9,7 +9,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "gideploy": "gh-pages -d dist"
+    "gideploy": "gh-pages -d dist",
+     "postbuild": "react-snap"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -81,6 +82,7 @@
     "globals": "^15.15.0",
     "lovable-tagger": "^1.1.11",
     "postcss": "^8.5.6",
+    "react-snap": "^1.23.0",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
