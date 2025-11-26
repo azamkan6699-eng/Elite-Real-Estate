@@ -5,8 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search } from "lucide-react";
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
-
 
 const offPlanProperties = [
   {
@@ -69,143 +67,116 @@ const offPlanProperties = [
 const OffPlan = () => {
   return (
     <>
-    <Helmet>
-        <title>About Sky Elite Real Estate | Dubai Investments</title>
-        <meta
-          name="description"
-          content="Learn more about Sky Elite Real Estate, our vision, and premium Dubai property investment opportunities."
-        />
-        <meta property="og:title" content="About Sky Elite Real Estate" />
-        <meta
-          property="og:description"
-          content="Discover Sky Elite Real Estate and our luxury Dubai properties."
-        />
-        <meta
-          property="og:image"
-          content="https://elite-real-estate-five.vercel.app/about-thumbnail.jpg"
-        />
-        <meta property="og:url" content="https://elite-real-estate-five.vercel.app/about" />
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <main>
+        {/* Hero Section */}
+        <SecondaryPropertiesHero />
 
-        <meta name="twitter:title" content="About Sky Elite Real Estate" />
-        <meta
-          name="twitter:description"
-          content="Discover Sky Elite Real Estate and our luxury Dubai properties."
-        />
-        <meta
-          name="twitter:image"
-          content="https://elite-real-estate-five.vercel.app/about-thumbnail.jpg"
-        />
-      </Helmet>
-      <div className="min-h-screen bg-background">
-        <Navbar />
-        <main>
-          {/* Hero Section */}
-          <SecondaryPropertiesHero />
-
-          {/* Property Filters */}
-          <section className="border-b border-border/40 bg-background/95 backdrop-blur">
-            <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24 py-8">
-              <div className="grid gap-4 md:grid-cols-5 items-end">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">Select City</label>
-                  <Select defaultValue="dubai">
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select city" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="dubai">Dubai</SelectItem>
-                      <SelectItem value="abu-dhabi">Abu Dhabi</SelectItem>
-                      <SelectItem value="sharjah">Sharjah</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">Property Type</label>
-                  <Select defaultValue="apartment">
-                    <SelectTrigger>
-                      <SelectValue placeholder="Choose property" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="apartment">Apartment</SelectItem>
-                      <SelectItem value="villa">Villa</SelectItem>
-                      <SelectItem value="townhouse">Townhouse</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">Bedrooms</label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Choose bedroom" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="studio">Studio</SelectItem>
-                      <SelectItem value="1">1 Bedroom</SelectItem>
-                      <SelectItem value="2">2 Bedrooms</SelectItem>
-                      <SelectItem value="3">3 Bedrooms</SelectItem>
-                      <SelectItem value="4+">4+ Bedrooms</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">Price Range</label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Price" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="0-500k">AED 0 - 500k</SelectItem>
-                      <SelectItem value="500k-1m">AED 500k - 1M</SelectItem>
-                      <SelectItem value="1m-2m">AED 1M - 2M</SelectItem>
-                      <SelectItem value="2m+">AED 2M+</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <Button className="gap-2">
-                  <Search className="h-4 w-4" />
-                  Search
-                </Button>
-              </div>
-            </div>
-          </section>
-
-          {/* Properties Grid */}
-          <section className="py-16 md:py-24 bg-background">
-            <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
-              <div className="mb-8 flex items-center justify-between">
-                <div>
-                  <h2 className="text-2xl font-bold text-foreground md:text-3xl">
-                    Apartments for Sale in Dubai
-                  </h2>
-                  <p className="text-muted-foreground mt-1">Dubai South</p>
-                </div>
-                <Select defaultValue="newest">
-                  <SelectTrigger className="w-[180px]">
-                    <SelectValue placeholder="Sort by" />
+        {/* Property Filters */}
+        <section className="border-b border-border/40 bg-background/95 backdrop-blur">
+          <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24 py-8">
+            <div className="grid gap-4 md:grid-cols-5 items-end">
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-foreground">Select City</label>
+                <Select defaultValue="dubai">
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select city" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="newest">Newest</SelectItem>
-                    <SelectItem value="price-low">Price: Low to High</SelectItem>
-                    <SelectItem value="price-high">Price: High to Low</SelectItem>
-                    <SelectItem value="area">Area: Largest</SelectItem>
+                    <SelectItem value="dubai">Dubai</SelectItem>
+                    <SelectItem value="abu-dhabi">Abu Dhabi</SelectItem>
+                    <SelectItem value="sharjah">Sharjah</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {offPlanProperties.map((property) => (
-                  <PropertyCard key={property.id} {...property} />
-                ))}
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-foreground">Property Type</label>
+                <Select defaultValue="apartment">
+                  <SelectTrigger>
+                    <SelectValue placeholder="Choose property" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="apartment">Apartment</SelectItem>
+                    <SelectItem value="villa">Villa</SelectItem>
+                    <SelectItem value="townhouse">Townhouse</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-foreground">Bedrooms</label>
+                <Select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Choose bedroom" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="studio">Studio</SelectItem>
+                    <SelectItem value="1">1 Bedroom</SelectItem>
+                    <SelectItem value="2">2 Bedrooms</SelectItem>
+                    <SelectItem value="3">3 Bedrooms</SelectItem>
+                    <SelectItem value="4+">4+ Bedrooms</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-foreground">Price Range</label>
+                <Select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Price" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="0-500k">AED 0 - 500k</SelectItem>
+                    <SelectItem value="500k-1m">AED 500k - 1M</SelectItem>
+                    <SelectItem value="1m-2m">AED 1M - 2M</SelectItem>
+                    <SelectItem value="2m+">AED 2M+</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <Button className="gap-2">
+                <Search className="h-4 w-4" />
+                Search
+              </Button>
             </div>
-          </section>
-        </main>
-        <Footer />
-      </div>
+          </div>
+        </section>
+
+        {/* Properties Grid */}
+        <section className="py-16 md:py-24 bg-background">
+          <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
+            <div className="mb-8 flex items-center justify-between">
+              <div>
+                <h2 className="text-2xl font-bold text-foreground md:text-3xl">
+                  Apartments for Sale in Dubai
+                </h2>
+                <p className="text-muted-foreground mt-1">Dubai South</p>
+              </div>
+              <Select defaultValue="newest">
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="Sort by" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="newest">Newest</SelectItem>
+                  <SelectItem value="price-low">Price: Low to High</SelectItem>
+                  <SelectItem value="price-high">Price: High to Low</SelectItem>
+                  <SelectItem value="area">Area: Largest</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {offPlanProperties.map((property) => (
+                <PropertyCard key={property.id} {...property} />
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
     </>
   );
 };
