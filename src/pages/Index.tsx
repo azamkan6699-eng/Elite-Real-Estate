@@ -14,6 +14,7 @@ const Index = () => {
     <>
       <Helmet>
         <title>Sky Elite Real Estate | Dubai Property Investment & Luxury Real Estate</title>
+        <link rel="icon" href="/favicon.png" />
 
         {/* SEO Meta */}
         <meta
@@ -52,7 +53,7 @@ const Index = () => {
       </Helmet>
 
       <div className="min-h-screen bg-background">
-        <h1>This chick</h1>
+        
         <Navbar />
         <main>
           <Hero />

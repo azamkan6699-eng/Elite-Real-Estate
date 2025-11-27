@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root") as HTMLElement).render(
   <HelmetProvider>
-    <BrowserRouter>
+    <BrowserRouter basename="/Elite-Real-Estate/">
       <App />
     </BrowserRouter>
   </HelmetProvider>
