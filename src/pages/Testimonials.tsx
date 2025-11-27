@@ -18,6 +18,7 @@ export default function Testimonials() {
     return (
         <>
             <Helmet>
+                <link rel="icon" href="/favicon.png" />
                 <title>Sky Elite Real Estate | Dubai Property Investment & Luxury Real Estate</title>
                 {/* <!-- SEO Meta --> */}
               <meta name="description"
