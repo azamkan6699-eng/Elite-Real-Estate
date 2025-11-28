@@ -9,17 +9,10 @@
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "gideploy": "gh-pages -d dist",
-    "postbuild": "react-snap"
+    "gideploy": "gh-pages -d dist"
+    
   },
-  "reactSnap": {
-    "source": "dist",
-    "include": ["/", "/about"],
-    "exclude": ["/login", "/signup"],
-    "inlineCss": true,
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
-    "waitFor": 1000
-  },
+ 
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@hookform/resolvers": "^3.10.0",
