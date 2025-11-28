@@ -9,7 +9,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "gideploy": "gh-pages -d dist"
+    "gideploy": "gh-pages -d dist",
+    "postbuild": "react-snap"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
