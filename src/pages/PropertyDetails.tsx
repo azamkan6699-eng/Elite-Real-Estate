@@ -27,7 +27,7 @@ import heroProperty5 from "@/assets/hero-property-5.jpg";
 
 
 import SuccessModal from "@/components/SuccessModal";
-import { Helmet } from "react-helmet-async";
+
 
 const PropertyDetails = () => {
   const { id } = useParams();
@@ -148,45 +148,7 @@ The spacious layout features floor-to-ceiling windows that flood the space with 
 
   return (
     <>
-      <Helmet>
-        <title>Sky Elite Real Estate | Dubai Property Investment & Luxury Real Estate</title>
-
-        {/* SEO Meta */}
-        <meta
-          name="description"
-          content="Invest in Dubai's premium real estate with Sky Elite. Off-plan properties, ready investments, and luxury villas with guaranteed returns. RERA-backed, tax-efficient long-term partnerships for global investors."
-        />
-        <meta
-          name="keywords"
-          content="Dubai real estate, property investment Dubai, luxury villas Dubai, off-plan properties, EMAAR properties, DAMAC properties, real estate investment, Dubai apartments"
-        />
-        <meta name="author" content="Sky Elite Real Estate" />
-
-        {/* Open Graph / Facebook */}
-        <meta property="og:title" content="Luxurious 3-Bedroom Apartment in Downtown Dubai" />
-        <meta
-          property="og:description"
-          content="Connecting global investors to Dubai's performance-driven properties. Structured, tax-efficient, RERA-backed investments with guaranteed returns."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://elite-real-estate-five.vercel.app/?v=2" />
-        <meta property="og:image" content="https://elite-real-estate-five.vercel.app/share-image.jpg?v=2" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Sky Elite Real Estate | Dubai Property Investment" />
-        <meta
-          name="twitter:description"
-          content="Premium Dubai real estate investments with guaranteed returns. Off-plan properties and luxury villas."
-        />
-        <meta name="twitter:image" content="https://elite-real-estate-five.vercel.app/share-image.jpg?v=2" />
-
-        {/* Canonical */}
-        <link rel="canonical" href="https://elite-real-estate-five.vercel.app/?v=2" />
-      </Helmet>
-
+      
       <div className="min-h-screen bg-background">
         <Navbar />
 
@@ -546,11 +508,11 @@ The spacious layout features floor-to-ceiling windows that flood the space with 
             {/* Contact Agent Modal */}
             {isOpen && (
               <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-                <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg animate-fadeIn">
+                <div className="bg-white rounded-2xl shadow-xl w-80 max-w-xs animate-fadeIn">
                   {/* Header */}
-                  <div className="bg-[#3f547d] text-white px-6 py-4 rounded-t-2xl flex justify-between items-center">
-                    <h2 className="text-lg font-bold flex items-center gap-2">
-                      <Mail className="h-7 w-7 mr-2" />
+                  <div className="bg-[#3f547d] text-white px-4 py-3 rounded-t-2xl flex justify-between items-center">
+                    <h2 className="text-md font-bold flex items-center gap-2">
+                      <Mail className="h-5 w-5" />
                       Contact Agent
                     </h2>
 
@@ -563,61 +525,60 @@ The spacious layout features floor-to-ceiling windows that flood the space with 
                   </div>
 
                   {/* Body */}
-                  <div className="p-6 bg-gray-50 rounded-b-2xl">
-                    <form className="space-y-3" onSubmit={handleSubmit}>
+                  <div className="p-4 bg-gray-50 rounded-b-2xl">
+                    <form className="space-y-2" onSubmit={handleSubmit}>
 
                       {/* Full Name */}
                       <div>
-                        <label className="font-semibold block mb-1">Full Name</label>
+                        <label className="font-semibold block mb-1 text-sm">Full Name</label>
                         <input
                           type="text"
                           name="fullName"
                           value={formData.fullName}
                           onChange={handleChange}
                           placeholder="Enter your name"
-                          className="w-full p-2 rounded-lg shadow-sm border focus:ring-2 focus:ring-blue-500 outline-none"
+                          className="w-full p-2 rounded-lg shadow-sm border focus:ring-2 focus:ring-blue-500 outline-none text-sm"
                           required
                         />
                       </div>
 
                       {/* Email */}
                       <div>
-                        <label className="font-semibold block mb-1">Email Address</label>
+                        <label className="font-semibold block mb-1 text-sm">Email Address</label>
                         <input
                           type="email"
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="you@example.com"
-                          className="w-full p-2 rounded-lg shadow-sm border focus:ring-2 focus:ring-blue-500 outline-none"
+                          className="w-full p-2 rounded-lg shadow-sm border focus:ring-2 focus:ring-blue-500 outline-none text-sm"
                           required
                         />
                       </div>
 
                       {/* Phone */}
                       <div>
-                        <label className="font-semibold block mb-1">Phone Number</label>
+                        <label className="font-semibold block mb-1 text-sm">Phone Number</label>
                         <input
                           type="tel"
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
                           placeholder="+971 5X XXX XXXX"
-                          className="w-full p-2 rounded-lg shadow-sm border focus:ring-2 focus:ring-blue-500 outline-none"
+                          className="w-full p-2 rounded-lg shadow-sm border focus:ring-2 focus:ring-blue-500 outline-none text-sm"
                           required
                         />
                       </div>
 
                       {/* Message */}
                       <div>
-                        <label className="font-semibold block mb-1">Your Message</label>
+                        <label className="font-semibold block mb-1 text-sm">Your Message</label>
                         <textarea
                           name="message"
-
                           value={formData.message}
                           onChange={handleChange}
                           placeholder="Write your message here..."
-                          className="w-full p-2 rounded-lg shadow-sm border focus:ring-2 focus:ring-blue-500 outline-none resize-none"
+                          className="w-full p-2 rounded-lg shadow-sm border focus:ring-2 focus:ring-blue-500 outline-none resize-none text-sm"
                           required
                         ></textarea>
                       </div>
@@ -628,7 +589,7 @@ The spacious layout features floor-to-ceiling windows that flood the space with 
                       {/* Submit */}
                       <button
                         type="submit"
-                        className="w-full bg-[#3f547d] text-white py-2 rounded-lg font-medium hover:bg-[#4a69a3] transition"
+                        className="w-full bg-[#3f547d] text-white py-2 rounded-lg font-medium hover:bg-[#4a69a3] transition text-sm"
                       >
                         Contact Us
                       </button>
@@ -636,6 +597,7 @@ The spacious layout features floor-to-ceiling windows that flood the space with 
                   </div>
                 </div>
               </div>
+
             )}
 
 
