@@ -3,20 +3,50 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  base: "/",   
 
-  server: {
-    host: "::",
-    port: 8080,
-  },
 
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+export default defineConfig(({ mode }) => {
+  const plugins: any[] = [
+    react(),
+    mode === "development" && componentTagger(),
+  ].filter(Boolean);
 
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
+  //  ADD prerender ONLY in build mode (SSR compatible)
+  if (mode === "production") {
+    const prerender = require("vite-plugin-prerender").default;
+
+    plugins.push(
+      prerender({
+        staticDir: "dist",
+        routes: [
+          "/",
+          "/AboutUs",
+          "/AlHaseenResidences",
+          "/Blog",
+          "/BlogPost",
+          "/OffPlan",
+          "/PrivacyPolicy",
+          "/PropertyDetails",
+          "/Rental",
+          "/Secondary",
+          "/TermsConditions",
+          "/Testimonials",
+        ],
+      })
+    );
+  }
+
+  return {
+    base: "/",
+    server: {
+      host: "::",
+      port: 8080,
     },
-  },
-}));
+    plugins,
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+      },
+    },
+  };
+});

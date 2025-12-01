@@ -9,16 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "gideploy": "gh-pages -d dist",
-    "postbuild": "react-snap"
-  },
-  "reactSnap": {
-    "source": "dist",
-    "include": ["/", "/about"],
-    "exclude": ["/login", "/signup"],
-    "inlineCss": true,
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
-    "waitFor": 1000
+    "gideploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -73,6 +64,7 @@
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.9",
+    "vite-plugin-prerender": "^1.0.8",
     "zod": "^3.25.76"
   },
   "devDependencies": {

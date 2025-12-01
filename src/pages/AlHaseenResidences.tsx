@@ -83,6 +83,7 @@ const AlHaseenResidences = () => {
         {/* <!-- Canonical --> */}
         <link rel="canonical" href="https://elite-real-estate-five.vercel.app/?v=2" />
       </Helmet>
+
       <div className="min-h-screen bg-background">
         <Navbar />
 
