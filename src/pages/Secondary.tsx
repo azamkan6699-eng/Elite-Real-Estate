@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 
 // ICONS
 import { Search } from "lucide-react";
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from "react-helmet-async";
 
 
 

@@ -7,7 +7,6 @@ import { Search } from "lucide-react";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 
-
 const offPlanProperties = [
   {
     id: "1",
