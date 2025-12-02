@@ -47,6 +47,7 @@ const Index = () => {
 
         <Navbar />
         <main>
+          <h1>Only Chick</h1>
           <Hero />
           <PropertyFilters />
           <PropertiesSection />
