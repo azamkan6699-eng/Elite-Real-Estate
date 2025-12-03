@@ -6,7 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from 'react-helmet';
 
 
 const blogPosts = [

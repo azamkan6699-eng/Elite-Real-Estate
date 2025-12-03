@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from 'react-helmet';
 
 const AlHaseenResidences = () => {
   const [formData, setFormData] = useState({

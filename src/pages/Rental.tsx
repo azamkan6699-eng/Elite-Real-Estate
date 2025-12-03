@@ -15,7 +15,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 
-import { Helmet } from "react-helmet-async";
+import { Helmet } from 'react-helmet';
 
 
 
