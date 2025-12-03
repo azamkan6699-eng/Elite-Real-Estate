@@ -80,7 +80,7 @@ const OffPlan = () => {
         <meta name="author" content="Sky Elite Real Estate" />
 
         {/* <!-- Open Graph / Facebook --> */}
-        <meta property="og:title" content="Luxurious 3-Bedroom Apartment in Downtown Dubai" />
+        <meta property="og:title" content="Secure your future with off-plan properties with high returns and flexible payment plans. Explore premium developments that align with your investment goals." />
         <meta property="og:description"
           content="Connecting global investors to Dubai's performance-driven properties. Structured, tax-efficient, RERA-backed investments with guaranteed returns." />
         <meta property="og:type" content="website" />
