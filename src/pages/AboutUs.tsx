@@ -5,7 +5,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { PageShell } from "@/rendere/renderer";
+
 
 
 const values = [
@@ -61,41 +62,41 @@ const stats = [
   { value: "$2B+", label: "Property Value" },
 ];
 
-const Page = () => (
-  <>
-    <Helmet>
-      <title>About Sky Elite Real Estate</title>
-      <link rel="icon" href="/favicon.png" />
+export const pageContext = {
+  pageMeta: {
+    title: "About Sky Elite Real Estate",
+    description:
+      "Invest in Dubai's premium real estate with Sky Elite. Off-plan properties, ready investments, and luxury villas with guaranteed returns.",
+    keywords:
+      "Dubai real estate, property investment Dubai, luxury villas Dubai, off-plan properties, EMAAR properties, DAMAC properties, real estate investment, Dubai apartments",
+    author: "Sky Elite Real Estate",
 
-      {/* <!-- SEO Meta --> */}
-      <meta name="description"
-        content="Invest in Dubai's premium real estate with Sky Elite. Off-plan properties, ready investments, and luxury villas with guaranteed returns. RERA-backed, tax-efficient long-term partnerships for global investors." />
-      <meta name="keywords"
-        content="Dubai real estate, property investment Dubai, luxury villas Dubai, off-plan properties, EMAAR properties, DAMAC properties, real estate investment, Dubai apartments" />
-      <meta name="author" content="Sky Elite Real Estate" />
+    // OG Tags
+    ogTitle: "Luxurious 3-Bedroom Apartment in Downtown Dubai",
+    ogDescription:
+      "Connecting global investors to Dubai's performance-driven properties.",
+    ogType: "website",
+    ogUrl: "https://elite-real-estate-five.vercel.app/about",
+    ogImage:
+      "https://elite-real-estate-five.vercel.app/share-image.jpg?v=2",
+    ogImageWidth: "1200",
+    ogImageHeight: "630",
 
-      {/* <!-- Open Graph / Facebook --> */}
-      <meta property="og:title" content="Luxurious 3-Bedroom Apartment in Downtown Dubai" />
-      <meta property="og:description"
-        content="Connecting global investors to Dubai's performance-driven properties. Structured, tax-efficient, RERA-backed investments with guaranteed returns." />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://elite-real-estate-five.vercel.app/?v=2" />
-      <meta property="og:image" content="https://elite-real-estate-five.vercel.app/share-image.jpg?v=2" />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
+    // Twitter
+    twitterCard: "summary_large_image",
+    twitterTitle: "Sky Elite Real Estate | Dubai Property Investment",
+    twitterDescription:
+      "Premium Dubai real estate investments with guaranteed returns.",
+    twitterImage:
+      "https://elite-real-estate-five.vercel.app/share-image.jpg?v=2",
 
-      {/* <!-- Twitter Card --> */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Sky Elite Real Estate | Dubai Property Investment" />
-      <meta name="twitter:description"
-        content="Premium Dubai real estate investments with guaranteed returns. Off-plan properties and luxury villas." />
-      <meta name="twitter:image" content="https://elite-real-estate-five.vercel.app/share-image.jpg?v=2" />
+    // Canonical
+    canonical: "https://elite-real-estate-five.vercel.app/about",
 
-      {/* <!-- Canonical --> */}
-      <link rel="canonical" href="https://elite-real-estate-five.vercel.app/?v=2" />
-    </Helmet>
-  </>
-);
+    // Favicon
+    favicon: "/favicon.png",
+  },
+};
 
 
 
@@ -111,7 +112,7 @@ const AboutUs = () => {
 
   return (
     <>
-    <Page />
+    <PageShell pageContext={pageContext}>
       <div className="min-h-screen bg-background">
         <Navbar />
         <main>
@@ -283,6 +284,8 @@ const AboutUs = () => {
         </main>
         <Footer />
       </div>
+    </PageShell>
+      
     </>
   );
 };

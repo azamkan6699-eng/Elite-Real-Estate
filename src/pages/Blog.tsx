@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { PageShell } from "@/rendere/renderer";
 
 
 const blogPosts = [
@@ -96,41 +97,27 @@ const blogPosts = [
   }
 ];
 
-const Page = () => (
-  <>
-    <Helmet>
-      <title>Our Blog</title>
-      <link rel="icon" href="/favicon.png" />
-
-      {/* <!-- SEO Meta --> */}
-      <meta name="description"
-        content="Invest in Dubai's premium real estate with Sky Elite. Off-plan properties, ready investments, and luxury villas with guaranteed returns. RERA-backed, tax-efficient long-term partnerships for global investors." />
-      <meta name="keywords"
-        content="Dubai real estate, property investment Dubai, luxury villas Dubai, off-plan properties, EMAAR properties, DAMAC properties, real estate investment, Dubai apartments" />
-      <meta name="author" content="Sky Elite Real Estate" />
-
-      {/* <!-- Open Graph / Facebook --> */}
-      <meta property="og:title" content=" Luxurious 3-Bedroom Apartment in Downtown Dubai" />
-      <meta property="og:description"
-        content="Connecting global investors to Dubai's performance-driven properties. Structured, tax-efficient, RERA-backed investments with guaranteed returns." />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://elite-real-estate-five.vercel.app/?v=2" />
-      <meta property="og:image" content="https://elite-real-estate-five.vercel.app/share-image.jpg?v=2" />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-
-      {/* <!-- Twitter Card --> */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Sky Elite Real Estate | Dubai Property Investment" />
-      <meta name="twitter:description"
-        content="Premium Dubai real estate investments with guaranteed returns. Off-plan properties and luxury villas." />
-      <meta name="twitter:image" content="https://elite-real-estate-five.vercel.app/share-image.jpg?v=2" />
-
-      {/* <!-- Canonical --> */}
-      <link rel="canonical" href="https://elite-real-estate-five.vercel.app/?v=2" />
-    </Helmet>
-  </>
-);
+export const pageContext = {
+  pageMeta: {
+    title: "Our Blog",
+    description: "Invest in Dubai's premium real estate with Sky Elite. Off-plan properties, ready investments, and luxury villas with guaranteed returns. RERA-backed, tax-efficient long-term partnerships for global investors.",
+    keywords: "Dubai real estate, property investment Dubai, luxury villas Dubai, off-plan properties, EMAAR properties, DAMAC properties, real estate investment, Dubai apartments",
+    author: "Sky Elite Real Estate",
+    ogTitle: "Luxurious 3-Bedroom Apartment in Downtown Dubai",
+    ogDescription: "Connecting global investors to Dubai's performance-driven properties. Structured, tax-efficient, RERA-backed investments with guaranteed returns.",
+    ogType: "website",
+    ogUrl: "https://elite-real-estate-five.vercel.app/?v=2",
+    ogImage: "https://elite-real-estate-five.vercel.app/share-image.jpg?v=2",
+    ogImageWidth: "1200",
+    ogImageHeight: "630",
+    twitterCard: "summary_large_image",
+    twitterTitle: "Sky Elite Real Estate | Dubai Property Investment",
+    twitterDescription: "Premium Dubai real estate investments with guaranteed returns. Off-plan properties and luxury villas.",
+    twitterImage: "https://elite-real-estate-five.vercel.app/share-image.jpg?v=2",
+    canonical: "https://elite-real-estate-five.vercel.app/?v=2",
+    favicon: "/favicon.png"
+  }
+}
 
 
 
@@ -144,95 +131,97 @@ const PropertyDetails = () => {
 
   return (
     <>
-    <Page />
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
+      <PageShell pageContext={pageContext}>
+        <div className="min-h-screen flex flex-col">
+          <Navbar />
 
-        {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-primary/10 via-background to-accent/10 py-20 md:py-32">
-          <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
-            <div className="max-w-3xl">
-              <h1 className="inline-block pb-3 leading-[1.1] text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Our Blog
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground">
-                Stay updated with the latest insights, trends, and expert analysis on Dubai's real estate market.
-              </p>
+          {/* Hero Section */}
+          <section className="relative bg-gradient-to-br from-primary/10 via-background to-accent/10 py-20 md:py-32">
+            <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
+              <div className="max-w-3xl">
+                <h1 className="inline-block pb-3 leading-[1.1] text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  Our Blog
+                </h1>
+                <p className="text-lg md:text-xl text-muted-foreground">
+                  Stay updated with the latest insights, trends, and expert analysis on Dubai's real estate market.
+                </p>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Blog Grid */}
-        <section className="py-16 md:py-24">
-          <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogPosts.map((post) => (
-                <Card key={post.id} className="group overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col">
-                  <Link to={`/blog/${post.id}`}>
-                    <div className="relative overflow-hidden aspect-[16/10]">
-                      <img
-                        src={post.image}
-                        alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute top-4 left-4">
-                        <span className="bg-primary/90 backdrop-blur-sm text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
-                          {post.category}
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
-
-                  <CardHeader className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <Avatar className="h-10 w-10 border-2 border-primary/20">
-                        <AvatarImage src={post.author.avatar} alt={post.author.name} />
-                        <AvatarFallback className="bg-primary/10 text-primary text-xs font-semibold">
-                          {post.author.initials}
-                        </AvatarFallback>
-                      </Avatar>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-foreground truncate">
-                          {post.author.name}
-                        </p>
-                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                          <Calendar className="h-3 w-3" />
-                          <span>{post.date}</span>
+          {/* Blog Grid */}
+          <section className="py-16 md:py-24">
+            <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {blogPosts.map((post) => (
+                  <Card key={post.id} className="group overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <Link to={`/blog/${post.id}`}>
+                      <div className="relative overflow-hidden aspect-[16/10]">
+                        <img
+                          src={post.image}
+                          alt={post.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div className="absolute top-4 left-4">
+                          <span className="bg-primary/90 backdrop-blur-sm text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
+                            {post.category}
+                          </span>
                         </div>
                       </div>
-                    </div>
+                    </Link>
 
-                    <h3 className="text-xl font-bold leading-tight group-hover:text-primary transition-colors line-clamp-2">
-                      {post.title}
-                    </h3>
-                  </CardHeader>
+                    <CardHeader className="space-y-4">
+                      <div className="flex items-center gap-3">
+                        <Avatar className="h-10 w-10 border-2 border-primary/20">
+                          <AvatarImage src={post.author.avatar} alt={post.author.name} />
+                          <AvatarFallback className="bg-primary/10 text-primary text-xs font-semibold">
+                            {post.author.initials}
+                          </AvatarFallback>
+                        </Avatar>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium text-foreground truncate">
+                            {post.author.name}
+                          </p>
+                          <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                            <Calendar className="h-3 w-3" />
+                            <span>{post.date}</span>
+                          </div>
+                        </div>
+                      </div>
 
-                  <CardContent className="flex-grow">
-                    <p className="text-muted-foreground line-clamp-3">
-                      {post.excerpt}
-                    </p>
-                  </CardContent>
+                      <h3 className="text-xl font-bold leading-tight group-hover:text-primary transition-colors line-clamp-2">
+                        {post.title}
+                      </h3>
+                    </CardHeader>
 
-                  <CardFooter className="flex items-center justify-between pt-4 border-t">
-                    <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                      <Clock className="h-4 w-4" />
-                      <span>{post.readTime}</span>
-                    </div>
-                    <Button variant="ghost" size="sm" className="group/btn" asChild>
-                      <Link to={`/blog/${post.id}`}>
-                        Read More
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                      </Link>
-                    </Button>
-                  </CardFooter>
-                </Card>
-              ))}
+                    <CardContent className="flex-grow">
+                      <p className="text-muted-foreground line-clamp-3">
+                        {post.excerpt}
+                      </p>
+                    </CardContent>
+
+                    <CardFooter className="flex items-center justify-between pt-4 border-t">
+                      <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                        <Clock className="h-4 w-4" />
+                        <span>{post.readTime}</span>
+                      </div>
+                      <Button variant="ghost" size="sm" className="group/btn" asChild>
+                        <Link to={`/blog/${post.id}`}>
+                          Read More
+                          <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                        </Link>
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <Footer />
-      </div>
+          <Footer />
+        </div>
+      </PageShell>
+
     </>
   );
 };

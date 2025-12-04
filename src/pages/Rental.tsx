@@ -13,93 +13,50 @@ import {
 } from "@/components/ui/select";
 
 import { Button } from "@/components/ui/button";
+import { PageShell } from "@/rendere/renderer";
 
 
-import { Helmet } from "react-helmet-async";
 
 
-const Page = () => (
-    <>
-        <Helmet>
-            <title>Rental Properties</title>
-            <link rel="icon" href="/favicon.png" />
 
-            {/* <!-- SEO Meta --> */}
-            <meta name="description"
-                content="Invest in Dubai's premium real estate with Sky Elite. Off-plan properties, ready investments, and luxury villas with guaranteed returns. RERA-backed, tax-efficient long-term partnerships for global investors." />
-            <meta name="keywords"
-                content="Dubai real estate, property investment Dubai, luxury villas Dubai, off-plan properties, EMAAR properties, DAMAC properties, real estate investment, Dubai apartments" />
-            <meta name="author" content="Sky Elite Real Estate" />
-
-            {/* <!-- Open Graph / Facebook --> */}
-            <meta property="og:title" content="Luxurious 3-Bedroom Apartment in Downtown Dubai" />
-            <meta property="og:description"
-                content="Connecting global investors to Dubai's performance-driven properties. Structured, tax-efficient, RERA-backed investments with guaranteed returns." />
-            <meta property="og:type" content="website" />
-            <meta property="og:url" content="https://elite-real-estate-five.vercel.app/?v=2" />
-            <meta property="og:image" content="https://elite-real-estate-five.vercel.app/Thumbnail.jpg?v=2" />
-            <meta property="og:image:width" content="1200" />
-            <meta property="og:image:height" content="630" />
-
-            {/* <!-- Twitter Card --> */}
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content="Sky Elite Real Estate | Dubai Property Investment" />
-            <meta name="twitter:description"
-                content="Premium Dubai real estate investments with guaranteed returns. Off-plan properties and luxury villas." />
-            <meta name="twitter:image" content="https://elite-real-estate-five.vercel.app/Thumbnail.jpg?v=2" />
-
-            {/* <!-- Canonical --> */}
-            <link rel="canonical" href="https://elite-real-estate-five.vercel.app/?v=2" />
-        </Helmet>
-    </>
-);
+export const pageContext = {
+    pageMeta: {
+        title: "Rental Properties",
+        description: "Invest in Dubai's premium real estate with Sky Elite. Off-plan properties, ready investments, and luxury villas with guaranteed returns. RERA-backed, tax-efficient long-term partnerships for global investors.",
+        keywords: "Dubai real estate, property investment Dubai, luxury villas Dubai, off-plan properties, EMAAR properties, DAMAC properties, real estate investment, Dubai apartments",
+        author: "Sky Elite Real Estate",
+        ogTitle: "Luxurious 3-Bedroom Apartment in Downtown Dubai",
+        ogDescription: "Connecting global investors to Dubai's performance-driven properties. Structured, tax-efficient, RERA-backed investments with guaranteed returns.",
+        ogType: "website",
+        ogUrl: "https://elite-real-estate-five.vercel.app/?v=2",
+        ogImage: "https://elite-real-estate-five.vercel.app/Thumbnail.jpg?v=2",
+        ogImageWidth: "1200",
+        ogImageHeight: "630",
+        twitterCard: "summary_large_image",
+        twitterTitle: "Sky Elite Real Estate | Dubai Property Investment",
+        twitterDescription: "Premium Dubai real estate investments with guaranteed returns. Off-plan properties and luxury villas.",
+        twitterImage: "https://elite-real-estate-five.vercel.app/Thumbnail.jpg?v=2",
+        canonical: "https://elite-real-estate-five.vercel.app/?v=2",
+        favicon: "/favicon.png"
+    }
+}
 
 
 export default function Rental() {
 
     return (
         <>
-        <Page />
-            <Helmet>
-                <title>Rental Properties</title>
-                <link rel="icon" href="/favicon.png" />
+            <PageShell pageContext={pageContext}>
+                <div>
+                    <Navbar />
+                    <SecondaryPropertiesHero />
+                    <PropertySearchForm />
+                    <ApartmentsList />
+                    <PartnersSection />
+                    <Footer />
+                </div>
+            </PageShell>
 
-                {/* <!-- SEO Meta --> */}
-                <meta name="description"
-                    content="Invest in Dubai's premium real estate with Sky Elite. Off-plan properties, ready investments, and luxury villas with guaranteed returns. RERA-backed, tax-efficient long-term partnerships for global investors." />
-                <meta name="keywords"
-                    content="Dubai real estate, property investment Dubai, luxury villas Dubai, off-plan properties, EMAAR properties, DAMAC properties, real estate investment, Dubai apartments" />
-                <meta name="author" content="Sky Elite Real Estate" />
-
-                {/* <!-- Open Graph / Facebook --> */}
-                <meta property="og:title" content="Luxurious 3-Bedroom Apartment in Downtown Dubai" />
-                <meta property="og:description"
-                    content="Connecting global investors to Dubai's performance-driven properties. Structured, tax-efficient, RERA-backed investments with guaranteed returns." />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://elite-real-estate-five.vercel.app/?v=2" />
-                <meta property="og:image" content="https://elite-real-estate-five.vercel.app/Thumbnail.jpg?v=2" />
-                <meta property="og:image:width" content="1200" />
-                <meta property="og:image:height" content="630" />
-
-                {/* <!-- Twitter Card --> */}
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Sky Elite Real Estate | Dubai Property Investment" />
-                <meta name="twitter:description"
-                    content="Premium Dubai real estate investments with guaranteed returns. Off-plan properties and luxury villas." />
-                <meta name="twitter:image" content="https://elite-real-estate-five.vercel.app/Thumbnail.jpg?v=2" />
-
-                {/* <!-- Canonical --> */}
-                <link rel="canonical" href="https://elite-real-estate-five.vercel.app/?v=2" />
-            </Helmet>
-
-            <div>
-                <Navbar />
-                <SecondaryPropertiesHero />
-                <PropertySearchForm />
-                <ApartmentsList />
-                <PartnersSection />
-                <Footer />
-            </div>
         </>
     )
 }
