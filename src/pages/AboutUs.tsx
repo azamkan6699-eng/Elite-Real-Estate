@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { PageShell } from "@/Renderer";
+
 
 
 
@@ -63,41 +63,6 @@ const stats = [
   { value: "$2B+", label: "Property Value" },
 ];
 
-export const pageContext = {
-  pageMeta: {
-    title: "About Sky Elite Real Estate",
-    description:
-      "Invest in Dubai's premium real estate with Sky Elite. Off-plan properties, ready investments, and luxury villas with guaranteed returns.",
-    keywords:
-      "Dubai real estate, property investment Dubai, luxury villas Dubai, off-plan properties, EMAAR properties, DAMAC properties, real estate investment, Dubai apartments",
-    author: "Sky Elite Real Estate",
-
-    // OG Tags
-    ogTitle: "Luxurious 3-Bedroom Apartment in Downtown Dubai",
-    ogDescription:
-      "Connecting global investors to Dubai's performance-driven properties.",
-    ogType: "website",
-    ogUrl: "https://elite-real-estate-five.vercel.app/about",
-    ogImage:
-      "https://elite-real-estate-five.vercel.app/share-image.jpg?v=2",
-    ogImageWidth: "1200",
-    ogImageHeight: "630",
-
-    // Twitter
-    twitterCard: "summary_large_image",
-    twitterTitle: "Sky Elite Real Estate | Dubai Property Investment",
-    twitterDescription:
-      "Premium Dubai real estate investments with guaranteed returns.",
-    twitterImage:
-      "https://elite-real-estate-five.vercel.app/share-image.jpg?v=2",
-
-    // Canonical
-    canonical: "https://elite-real-estate-five.vercel.app/about",
-
-    // Favicon
-    favicon: "/favicon.png",
-  },
-};
 
 
 
@@ -113,7 +78,7 @@ const AboutUs = () => {
 
   return (
     <>
-    <PageShell pageContext={pageContext}>
+    
       <div className="min-h-screen bg-background">
         <Navbar />
         <main>
@@ -285,7 +250,7 @@ const AboutUs = () => {
         </main>
         <Footer />
       </div>
-    </PageShell>
+    
       
     </>
   );

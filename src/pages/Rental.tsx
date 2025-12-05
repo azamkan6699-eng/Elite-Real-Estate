@@ -13,40 +13,20 @@ import {
 } from "@/components/ui/select";
 
 import { Button } from "@/components/ui/button";
-import { PageShell } from "@/Renderer";
 
 
 
 
 
-export const pageContext = {
-    pageMeta: {
-        title: "Rental Properties",
-        description: "Invest in Dubai's premium real estate with Sky Elite. Off-plan properties, ready investments, and luxury villas with guaranteed returns. RERA-backed, tax-efficient long-term partnerships for global investors.",
-        keywords: "Dubai real estate, property investment Dubai, luxury villas Dubai, off-plan properties, EMAAR properties, DAMAC properties, real estate investment, Dubai apartments",
-        author: "Sky Elite Real Estate",
-        ogTitle: "Luxurious 3-Bedroom Apartment in Downtown Dubai",
-        ogDescription: "Connecting global investors to Dubai's performance-driven properties. Structured, tax-efficient, RERA-backed investments with guaranteed returns.",
-        ogType: "website",
-        ogUrl: "https://elite-real-estate-five.vercel.app/?v=2",
-        ogImage: "https://elite-real-estate-five.vercel.app/Thumbnail.jpg?v=2",
-        ogImageWidth: "1200",
-        ogImageHeight: "630",
-        twitterCard: "summary_large_image",
-        twitterTitle: "Sky Elite Real Estate | Dubai Property Investment",
-        twitterDescription: "Premium Dubai real estate investments with guaranteed returns. Off-plan properties and luxury villas.",
-        twitterImage: "https://elite-real-estate-five.vercel.app/Thumbnail.jpg?v=2",
-        canonical: "https://elite-real-estate-five.vercel.app/?v=2",
-        favicon: "/favicon.png"
-    }
-}
+
+
 
 
 export default function Rental() {
 
     return (
         <>
-            <PageShell pageContext={pageContext}>
+          
                 <div>
                     <Navbar />
                     <SecondaryPropertiesHero />
@@ -55,8 +35,7 @@ export default function Rental() {
                     <PartnersSection />
                     <Footer />
                 </div>
-            </PageShell>
-
+        
         </>
     )
 }

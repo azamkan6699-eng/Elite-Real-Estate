@@ -1,5 +1,5 @@
 import { Navbar } from '@/components/Navbar'
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Footer } from '@/components/Footer';
 import { PropertyCard } from '@/components/PropertyCard';
 // SHADCN UI
@@ -15,37 +15,15 @@ import { Button } from "@/components/ui/button";
 
 // ICONS
 import { Search } from "lucide-react";
-import { PageShell } from "@/Renderer";
 
 
 
-export const pageContext = {
-  pageMeta: {
-    title: "Secondary Propertiess",
-    description: "Invest in Dubai's premium real estate with Sky Elite. Off-plan properties, ready investments, and luxury villas with guaranteed returns. RERA-backed, tax-efficient long-term partnerships for global investors.",
-    keywords: "Dubai real estate, property investment Dubai, luxury villas Dubai, off-plan properties, EMAAR properties, DAMAC properties, real estate investment, Dubai apartments",
-    author: "Sky Elite Real Estate",
-    ogTitle: "Luxurious 3-Bedroom Apartment in Downtown Dubai",
-    ogDescription: "Connecting global investors to Dubai's performance-driven properties. Structured, tax-efficient, RERA-backed investments with guaranteed returns.",
-    ogType: "website",
-    ogUrl: "https://elite-real-estate-five.vercel.app/?v=2",
-    ogImage: "https://elite-real-estate-five.vercel.app/Thumbnail.jpg?v=2",
-    ogImageWidth: "1200",
-    ogImageHeight: "630",
-    twitterCard: "summary_large_image",
-    twitterTitle: "Sky Elite Real Estate | Dubai Property Investment",
-    twitterDescription: "Premium Dubai real estate investments with guaranteed returns. Off-plan properties and luxury villas.",
-    twitterImage: "https://elite-real-estate-five.vercel.app/Thumbnail.jpg?v=2",
-    canonical: "https://elite-real-estate-five.vercel.app/?v=2",
-    favicon: "/favicon.png"
-  }
-}
 
 
 export default function Secondary() {
   return (
     <>
-      <PageShell pageContext={pageContext}>
+      
         <div>
           <Navbar />
           <SecondaryPropertiesHero />
@@ -55,7 +33,7 @@ export default function Secondary() {
           <Footer />
 
         </div>
-      </PageShell>
+     
 
     </>
   )
@@ -252,10 +230,10 @@ function SecondaryPropertiesHero() {
 
 
 function PropertySearchForm() {
-  const [city, setCity] = useState("");
-  const [propertyType, setPropertyType] = useState("");
-  const [bedrooms, setBedrooms] = useState("");
-  const [price, setPrice] = useState("");
+  const [city, setCity] = React.useState("");
+  const [propertyType, setPropertyType] = React.useState("");
+  const [bedrooms, setBedrooms] = React.useState("");
+  const [price, setPrice] = React.useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -4,12 +4,7 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 
-const container = document.getElementById("root");
-if (!container) throw new Error("Root container missing in index.html");
-
-const root = createRoot(container);
-
-root.render(
+createRoot(document.getElementById("root") as HTMLElement).render(
   <HelmetProvider>
     <BrowserRouter>
       <App />
