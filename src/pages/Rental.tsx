@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Property } from "./Secondary";
@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/select";
 
 import { Button } from "@/components/ui/button";
-import { PageShell } from "@/rendere/renderer";
+import { PageShell } from "@/Renderer";
 
 
 
@@ -253,10 +253,10 @@ function SecondaryPropertiesHero() {
 
 
 function PropertySearchForm() {
-    const [city, setCity] = React.useState("");
-    const [propertyType, setPropertyType] = React.useState("");
-    const [bedrooms, setBedrooms] = React.useState("");
-    const [price, setPrice] = React.useState("");
+    const [city, setCity] = useState("");
+    const [propertyType, setPropertyType] = useState("");
+    const [bedrooms, setBedrooms] = useState("");
+    const [price, setPrice] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();

@@ -1,5 +1,5 @@
 import { Navbar } from '@/components/Navbar'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { Shield, Settings, Share2, Cookie, Lock, UserCheck, RefreshCw } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import { useParams } from 'react-router-dom';

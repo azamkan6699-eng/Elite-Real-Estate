@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Navbar } from '@/components/Navbar'
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from "react-icons/hi";
 import { Footer } from '@/components/Footer';
 import { useParams } from 'react-router-dom';
-import { Helmet } from "react-helmet-async";
-import { PageShell } from '@/rendere/renderer';
+import { PageShell } from "@/Renderer";
 
 
 

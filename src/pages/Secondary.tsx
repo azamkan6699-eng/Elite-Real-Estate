@@ -1,5 +1,5 @@
 import { Navbar } from '@/components/Navbar'
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Footer } from '@/components/Footer';
 import { PropertyCard } from '@/components/PropertyCard';
 // SHADCN UI
@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 
 // ICONS
 import { Search } from "lucide-react";
-import { Helmet } from "react-helmet-async";
+import { PageShell } from "@/Renderer";
 
 
 
@@ -45,16 +45,18 @@ export const pageContext = {
 export default function Secondary() {
   return (
     <>
-    
-      <div>
-        <Navbar />
-        <SecondaryPropertiesHero />
-        <PropertySearchForm />
-        <Property />
-        <PartnersSection />
-        <Footer />
+      <PageShell pageContext={pageContext}>
+        <div>
+          <Navbar />
+          <SecondaryPropertiesHero />
+          <PropertySearchForm />
+          <Property />
+          <PartnersSection />
+          <Footer />
 
-      </div>
+        </div>
+      </PageShell>
+
     </>
   )
 }
@@ -250,10 +252,10 @@ function SecondaryPropertiesHero() {
 
 
 function PropertySearchForm() {
-  const [city, setCity] = React.useState("");
-  const [propertyType, setPropertyType] = React.useState("");
-  const [bedrooms, setBedrooms] = React.useState("");
-  const [price, setPrice] = React.useState("");
+  const [city, setCity] = useState("");
+  const [propertyType, setPropertyType] = useState("");
+  const [bedrooms, setBedrooms] = useState("");
+  const [price, setPrice] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();

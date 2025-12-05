@@ -14,23 +14,27 @@ export default defineConfig(({ mode }) => {
     server: {
       host: "::",
       port: 8080,
+      open: true, // browser auto open
     },
     plugins,
     resolve: {
       alias: {
-        "@": path.resolve(__dirname, "./src"),
+        "@": path.resolve(__dirname, "src"), // src folder alias
       },
     },
-     build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['react', 'react-dom'],
+          },
         },
       },
+      chunkSizeWarningLimit: 1500,
     },
-    chunkSizeWarningLimit: 1500, // warning threshold 
-  },
+    esbuild: {
+      // optional: to handle JSX properly
+      jsxInject: `import React from 'react'`,
+    },
   };
 });

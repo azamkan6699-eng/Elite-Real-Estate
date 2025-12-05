@@ -1,7 +1,8 @@
 import { Navbar } from '@/components/Navbar'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { Footer } from '@/components/Footer';
 import { useParams } from 'react-router-dom';
+
 
 export default function TermsConditions() {
 
@@ -14,6 +15,9 @@ export default function TermsConditions() {
 
     return (
         <>
+           
+
+
             <div>
                 <Navbar />
                 <Terms />

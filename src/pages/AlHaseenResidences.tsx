@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { PageShell } from "@/rendere/renderer";
+import { PageShell } from "@/Renderer";
 
 
 export const pageContext = {

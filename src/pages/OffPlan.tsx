@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search } from "lucide-react";
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
-import { PageShell } from "@/rendere/renderer";
+
+import { PageShell } from "@/Renderer";
 
 const offPlanProperties = [
   {
