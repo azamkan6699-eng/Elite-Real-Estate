@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -66,6 +67,7 @@ const stats = [
 
 
 
+
 const AboutUs = () => {
 
   const { id } = useParams();
@@ -78,7 +80,38 @@ const AboutUs = () => {
 
   return (
     <>
-    
+      <Helmet>
+        <title>About Sky Elite Real Estate</title>
+        <link rel="icon" href="/favicon.png" />
+
+        {/* <!-- SEO Meta --> */}
+        <meta name="description"
+          content="Invest in Dubai's premium real estate with Sky Elite. Off-plan properties, ready investments, and luxury villas with guaranteed returns. RERA-backed, tax-efficient long-term partnerships for global investors." />
+        <meta name="keywords"
+          content="Dubai real estate, property investment Dubai, luxury villas Dubai, off-plan properties, EMAAR properties, DAMAC properties, real estate investment, Dubai apartments" />
+        <meta name="author" content="Sky Elite Real Estate" />
+
+        {/* <!-- Open Graph / Facebook --> */}
+        <meta property="og:title" content="We turn real estate into a structured journey of lasting growth, built on foresight, verified by regulation, and strengthened by long-term partnership." />
+        <meta property="og:description"
+          content="Connecting global investors to Dubai's performance-driven properties. Structured, tax-efficient, RERA-backed investments with guaranteed returns." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://elite-real-estate-five.vercel.app/?v=2" />
+        <meta property="og:image" content="https://elite-real-estate-five.vercel.app/share-image.jpg?v=2" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Sky Elite Real Estate | Dubai Property Investment" />
+        <meta name="twitter:description"
+          content="Premium Dubai real estate investments with guaranteed returns. Off-plan properties and luxury villas." />
+        <meta name="twitter:image" content="https://elite-real-estate-five.vercel.app/share-image.jpg?v=2" />
+
+        {/* Canonical */}
+        <link rel="canonical" href="https://elite-real-estate-five.vercel.app/?v=2" />
+      </Helmet>
+
       <div className="min-h-screen bg-background">
         <Navbar />
         <main>
@@ -250,8 +283,8 @@ const AboutUs = () => {
         </main>
         <Footer />
       </div>
-    
-      
+
+
     </>
   );
 };
